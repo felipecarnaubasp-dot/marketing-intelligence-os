@@ -1,7 +1,7 @@
 "use client";
 import React from 'react';
 import Link from 'next/link';
-import { ArrowLeft, Mail, MessageSquare } from 'lucide-react';
+import { ArrowLeft, Mail, MessageSquare, PhoneCall } from 'lucide-react';
 
 export default function ContatoPage() {
   return (
@@ -11,13 +11,40 @@ export default function ContatoPage() {
           <ArrowLeft className="w-4 h-4" /> Voltar para a Página Principal
         </Link>
         <div className="p-8 md:p-12 rounded-3xl bg-white/[0.02] border border-white/10 backdrop-blur-xl">
-          <MessageSquare className="w-12 h-12 text-blue-500 mb-6" />
-          <h1 className="text-3xl md:text-4xl font-bold text-white mb-6">Central de Contato</h1>
-          <p className="text-slate-400 leading-relaxed mb-6">
-            Precisa falar com nossa equipe comercial ou de suporte técnico especializado? Entre em contato diretamente através do e-mail corporativo:
+          <div className="flex items-center gap-3 mb-6">
+            <MessageSquare className="w-10 h-10 text-blue-500" />
+            <h1 className="text-3xl md:text-4xl font-bold text-white">Central de Atendimento</h1>
+          </div>
+          <p className="text-slate-400 leading-relaxed mb-8">
+            Precisa de suporte técnico especializado, deseja tirar dúvidas sobre implantação ou falar com o nosso setor comercial? Estamos prontos para atender sua empresa.
           </p>
-          <div className="p-4 rounded-xl bg-blue-500/10 border border-blue-500/20 text-blue-300 font-mono text-sm inline-flex items-center gap-2">
-            <Mail className="w-4 h-4" /> suporte@marketingos.shop
+
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="p-6 rounded-2xl bg-white/[0.02] border border-white/5 flex flex-col justify-between">
+              <div>
+                <div className="p-3 rounded-xl bg-blue-500/10 text-blue-400 w-fit mb-4">
+                  <Mail className="w-6 h-6" />
+                </div>
+                <h3 className="text-lg font-bold text-white mb-1">E-mail Corporativo</h3>
+                <p className="text-xs text-slate-400 mb-4">Para propostas, parcerias e solicitações oficiais.</p>
+              </div>
+              <a href="mailto:suporte@marketingos.shop" className="text-sm font-mono text-blue-400 hover:underline">
+                suporte@marketingos.shop
+              </a>
+            </div>
+
+            <div className="p-6 rounded-2xl bg-white/[0.02] border border-white/5 flex flex-col justify-between">
+              <div>
+                <div className="p-3 rounded-xl bg-emerald-500/10 text-emerald-400 w-fit mb-4">
+                  <PhoneCall className="w-6 h-6" />
+                </div>
+                <h3 className="text-lg font-bold text-white mb-1">WhatsApp Comercial</h3>
+                <p className="text-xs text-slate-400 mb-4">Atendimento rápido para dúvidas e ativações.</p>
+              </div>
+              <a href="https://wa.me/5511967585119" target="_blank" rel="noopener noreferrer" className="text-sm font-mono text-emerald-400 hover:underline">
+                (11) 96758-5119
+              </a>
+            </div>
           </div>
         </div>
       </div>
