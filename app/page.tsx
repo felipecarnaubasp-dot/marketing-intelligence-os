@@ -379,29 +379,80 @@ export default function LandingPage() {
           </div>
         </section>
 
-        {/* 9. PLANOS */}
+        {/* 9. PLANOS (REMODELADO COM MAIS DETALHES) */}
         <section id="planos" className="py-24 px-6 max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">Pronto para escalar?</h2>
-            <p className="text-xl text-slate-400">Escolha o plano ideal para o momento da sua empresa.</p>
+            <p className="text-xl text-slate-400">Escolha o plano ideal para estruturar a inteligência do seu marketing.</p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {[
-              { name: "Starter", desc: "Para pequenas empresas estruturando o marketing.", highlight: false },
-              { name: "Professional", desc: "Para equipes de marketing que precisam de escala.", highlight: true },
-              { name: "Enterprise", desc: "Para corporações que exigem inteligência avançada.", highlight: false }
+              { 
+                name: "Starter", 
+                subtitle: "Para pequenas empresas",
+                desc: "Ideal para estruturar os primeiros processos e organizar os dados de marketing.", 
+                highlight: false,
+                features: [
+                  "Até 3 usuários na plataforma",
+                  "Módulo AI Marketing Strategist básico",
+                  "Analytics Intelligence essenciais",
+                  "Geração de até 50 conteúdos/mês com IA",
+                  "Suporte via comunidade e tickets"
+                ]
+              },
+              { 
+                name: "Professional", 
+                subtitle: "Para equipes de marketing",
+                desc: "Perfeito para empresas em expansão que exigem automação avançada e escala.", 
+                highlight: true,
+                features: [
+                  "Até 10 usuários na plataforma",
+                  "Todos os 6 módulos de inteligência inclusos",
+                  "Dashboards e KPIs em tempo real",
+                  "Geração ilimitada de conteúdos e campanhas",
+                  "Equipe completa de Agentes IA (24/7)",
+                  "Suporte prioritário dedicado"
+                ]
+              },
+              { 
+                name: "Enterprise", 
+                subtitle: "Para grandes operações",
+                desc: "Inteligência avançada, máxima segurança e personalização sob medida.", 
+                highlight: false,
+                features: [
+                  "Usuários ilimitados",
+                  "Arquitetura SaaS dedicada",
+                  "APIs e integrações customizadas (CRM e ERP)",
+                  "Agentes IA treinados com dados proprietários",
+                  "Gerente de conta e Customer Success exclusivo",
+                  "SLA de disponibilidade de 99.9%"
+                ]
+              }
             ].map((plan, i) => (
-              <div key={i} className={`p-8 rounded-3xl border ${plan.highlight ? 'bg-blue-900/10 border-blue-500/50 shadow-[0_0_30px_-5px_rgba(37,99,235,0.2)] relative transform md:-translate-y-4' : 'bg-white/[0.02] border-white/10'} flex flex-col`}>
+              <div key={i} className={`p-8 rounded-3xl border flex flex-col justify-between ${plan.highlight ? 'bg-blue-950/20 border-blue-500/50 shadow-[0_0_40px_-10px_rgba(37,99,235,0.3)] relative transform md:-translate-y-4' : 'bg-white/[0.02] border-white/10'}`}>
                 {plan.highlight && (
-                  <span className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 px-3 py-1 bg-blue-500 text-white text-xs font-bold rounded-full uppercase tracking-wider">
+                  <span className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 px-4 py-1 bg-blue-500 text-white text-xs font-bold rounded-full uppercase tracking-wider">
                     Mais Escolhido
                   </span>
                 )}
-                <h3 className="text-2xl font-bold text-white mb-2">{plan.name}</h3>
-                <p className="text-slate-400 text-sm mb-8">{plan.desc}</p>
-                <div className="mt-auto pt-8 border-t border-white/10">
-                  <Link href="#" className={`w-full block text-center py-3 rounded-full font-semibold transition ${plan.highlight ? 'bg-blue-600 hover:bg-blue-500 text-white' : 'bg-white/10 hover:bg-white/20 text-white'}`}>
+                <div>
+                  <h3 className="text-2xl font-bold text-white mb-1">{plan.name}</h3>
+                  <p className="text-blue-400 text-xs font-semibold uppercase tracking-wider mb-4">{plan.subtitle}</p>
+                  <p className="text-slate-400 text-sm mb-6 pb-6 border-b border-white/10">{plan.desc}</p>
+                  
+                  <ul className="space-y-3 mb-8">
+                    {plan.features.map((feat, j) => (
+                      <li key={j} className="flex items-start gap-2.5 text-sm text-slate-300">
+                        <CheckCircle2 className="w-4 h-4 text-blue-500 mt-0.5 shrink-0" />
+                        <span>{feat}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="pt-4 border-t border-white/10">
+                  <Link href="#" className={`w-full block text-center py-3.5 rounded-full font-semibold transition ${plan.highlight ? 'bg-blue-600 hover:bg-blue-500 text-white shadow-[0_0_20px_-5px_rgba(37,99,235,0.5)]' : 'bg-white/10 hover:bg-white/20 text-white'}`}>
                     Solicitar acesso
                   </Link>
                 </div>
