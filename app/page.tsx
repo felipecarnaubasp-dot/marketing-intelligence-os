@@ -1,13 +1,20 @@
 "use client";
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import { 
   Brain, BarChart3, Bot, Zap, Shield, CheckCircle2, 
   ArrowRight, Search, Target, Users, Briefcase, 
-  Layers, LineChart, Lock, ChevronRight 
+  Layers, LineChart, Lock, ChevronDown, Star 
 } from 'lucide-react';
 
 export default function LandingPage() {
+  // Estado para controlar o FAQ interativo (accordion)
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
+
+  const toggleFaq = (index: number) => {
+    setOpenFaq(openFaq === index ? null : index);
+  };
+
   return (
     <div className="min-h-screen bg-[#0a0f1c] text-slate-200 selection:bg-blue-500/30 font-sans overflow-hidden">
       
@@ -28,6 +35,7 @@ export default function LandingPage() {
           <div className="hidden md:flex gap-8 text-sm font-medium text-slate-400">
             <Link href="#solucao" className="hover:text-white transition">Solução</Link>
             <Link href="#beneficios" className="hover:text-white transition">Benefícios</Link>
+            <Link href="#depoimentos" className="hover:text-white transition">Resultados</Link>
             <Link href="#planos" className="hover:text-white transition">Planos</Link>
           </div>
           <Link href="#" className="px-5 py-2 text-sm font-medium text-white bg-white/10 hover:bg-white/20 border border-white/10 rounded-full backdrop-blur-md transition">
@@ -316,6 +324,51 @@ export default function LandingPage() {
           </div>
         </section>
 
+        {/* NOVA SEÇÃO: DEPOIMENTOS / PROVA SOCIAL */}
+        <section id="depoimentos" className="py-24 px-6 max-w-7xl mx-auto border-t border-white/5">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-1 text-yellow-400 mb-3">
+              {[...Array(5)].map((_, i) => (
+                <Star key={i} className="w-5 h-5 fill-current" />
+              ))}
+            </div>
+            <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
+              Amado por líderes de marketing e agências
+            </h2>
+            <p className="text-xl text-slate-400 max-w-2xl mx-auto">
+              Veja como empresas de diferentes portes estão escalando os resultados com inteligência automatizada.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                quote: "O Marketing Intelligence OS mudou completamente nossa tomada de decisão. Reduzimos o tempo de relatórios em 80% e aumentamos o ROI das campanhas.",
+                author: "Marcos Vinícius",
+                role: "CMO na TechGrowth B2B"
+              },
+              {
+                quote: "Gerenciar múltiplas contas de clientes costumava ser um caos de planilhas. Agora temos agentes de IA trabalhando 24/7 identificando padrões.",
+                author: "Camila Sampaio",
+                role: "Diretora de Operações na Vibe Agência"
+              },
+              {
+                quote: "A clareza dos dashboards e as recomendações automáticas de estratégia nos deram uma previsibilidade de crescimento que nunca tivemos antes.",
+                author: "Rafael Mendes",
+                role: "Fundador e CEO da ScaleUp SaaS"
+              }
+            ].map((testimonial, i) => (
+              <div key={i} className="p-8 rounded-3xl bg-white/[0.02] border border-white/5 flex flex-col justify-between hover:border-blue-500/30 transition">
+                <p className="text-slate-300 text-sm leading-relaxed mb-8 italic">"{testimonial.quote}"</p>
+                <div>
+                  <div className="font-bold text-white text-base">{testimonial.author}</div>
+                  <div className="text-xs text-blue-400 mt-0.5">{testimonial.role}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
         {/* 6. PARA QUEM É */}
         <section className="py-24 px-6 max-w-7xl mx-auto border-t border-white/5">
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -379,7 +432,7 @@ export default function LandingPage() {
           </div>
         </section>
 
-        {/* 9. PLANOS (REMODELADO COM MAIS DETALHES) */}
+        {/* 9. PLANOS */}
         <section id="planos" className="py-24 px-6 max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">Pronto para escalar?</h2>
@@ -461,10 +514,10 @@ export default function LandingPage() {
           </div>
         </section>
 
-        {/* 10. FAQ */}
+        {/* 10. FAQ INTERATIVO (SANFONA / ACCORDION) */}
         <section className="py-24 px-6 max-w-3xl mx-auto border-t border-white/5">
           <h2 className="text-3xl font-bold text-center text-white mb-12">Perguntas Frequentes</h2>
-          <div className="space-y-6">
+          <div className="space-y-4">
             {[
               {
                 q: "O Marketing Intelligence OS substitui minha equipe?",
@@ -483,12 +536,23 @@ export default function LandingPage() {
                 a: "Sim. A plataforma cresce de forma escalonável junto com a sua operação e as suas demandas."
               }
             ].map((faq, i) => (
-              <div key={i} className="p-6 rounded-2xl bg-white/[0.02] border border-white/5">
-                <h4 className="text-lg font-semibold text-white mb-3 flex items-center gap-2">
-                  <ChevronRight className="w-5 h-5 text-blue-500" />
-                  {faq.q}
-                </h4>
-                <p className="text-slate-400 pl-7">{faq.a}</p>
+              <div key={i} className="rounded-2xl bg-white/[0.02] border border-white/5 overflow-hidden transition">
+                <button 
+                  onClick={() => toggleFaq(i)}
+                  className="w-full p-6 text-left flex items-center justify-between text-white font-semibold focus:outline-none"
+                >
+                  <span className="flex items-center gap-3">
+                    <span className="w-2 h-2 rounded-full bg-blue-500"></span>
+                    {faq.q}
+                  </span>
+                  <ChevronDown className={`w-5 h-5 text-slate-400 transition-transform duration-300 ${openFaq === i ? 'rotate-180 text-blue-400' : ''}`} />
+                </button>
+                
+                {openFaq === i && (
+                  <div className="px-6 pb-6 pt-0 text-slate-400 text-sm leading-relaxed border-t border-white/5 pt-4">
+                    {faq.a}
+                  </div>
+                )}
               </div>
             ))}
           </div>
@@ -511,9 +575,47 @@ export default function LandingPage() {
           </div>
         </section>
         
-        {/* FOOTER BÁSICO */}
-        <footer className="py-8 text-center text-slate-500 text-sm border-t border-white/5">
-          <p>© 2026 Marketing Intelligence OS. Todos os direitos reservados.</p>
+        {/* RODAPÉ CORPORATIVO COMPLETO */}
+        <footer className="py-16 px-6 max-w-7xl mx-auto border-t border-white/5 text-slate-500 text-sm">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+            <div>
+              <div className="flex items-center gap-2 mb-4">
+                <Brain className="w-6 h-6 text-blue-500" />
+                <span className="font-bold text-lg text-white">Marketing OS</span>
+              </div>
+              <p className="text-xs text-slate-400 leading-relaxed">
+                O sistema operacional inteligente definitivo para comandar todo o ecossistema de marketing da sua empresa através de dados e IA.
+              </p>
+            </div>
+            <div>
+              <h4 className="text-white font-semibold text-xs uppercase tracking-wider mb-4">Produto</h4>
+              <ul className="space-y-2.5 text-xs">
+                <li><Link href="#solucao" className="hover:text-white transition">Módulos IA</Link></li>
+                <li><Link href="#planos" className="hover:text-white transition">Planos e Preços</Link></li>
+                <li><Link href="#" className="hover:text-white transition">Segurança Enterprise</Link></li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="text-white font-semibold text-xs uppercase tracking-wider mb-4">Empresa</h4>
+              <ul className="space-y-2.5 text-xs">
+                <li><Link href="#" className="hover:text-white transition">Sobre nós</Link></li>
+                <li><Link href="#" className="hover:text-white transition">Carreiras</Link></li>
+                <li><Link href="#" className="hover:text-white transition">Contato</Link></li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="text-white font-semibold text-xs uppercase tracking-wider mb-4">Legal</h4>
+              <ul className="space-y-2.5 text-xs">
+                <li><Link href="#" className="hover:text-white transition">Termos de Uso</Link></li>
+                <li><Link href="#" className="hover:text-white transition">Política de Privacidade</Link></li>
+                <li><Link href="#" className="hover:text-white transition">Configurações de Cookies</Link></li>
+              </ul>
+            </div>
+          </div>
+          <div className="pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
+            <p>© 2026 Marketing Intelligence OS. Todos os direitos reservados.</p>
+            <p className="text-slate-400 font-mono">Arquitetura SaaS Enterprise V1.0</p>
+          </div>
         </footer>
 
       </div>
