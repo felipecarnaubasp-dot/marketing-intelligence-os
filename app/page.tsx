@@ -8,12 +8,16 @@ import {
 } from 'lucide-react';
 
 export default function LandingPage() {
-  // Estado para controlar o FAQ interativo (accordion)
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   const toggleFaq = (index: number) => {
     setOpenFaq(openFaq === index ? null : index);
   };
+
+  // Link base do WhatsApp com mensagem padrão
+  const waLinkGeral = "https://wa.me/5511967585119?text=Olá!%20Gostaria%20de%20solicitar%20acesso%20ao%20Marketing%20Intelligence%20OS.";
+  const waLinkPro = "https://wa.me/5511967585119?text=Olá!%20Tenho%20interesse%20no%20plano%20Professional%20do%20Marketing%20Intelligence%20OS.";
+  const waLinkEnterprise = "https://wa.me/5511967585119?text=Olá!%20Tenho%20interesse%20no%20plano%20Enterprise%20do%20Marketing%20Intelligence%20OS.";
 
   return (
     <div className="min-h-screen bg-[#0a0f1c] text-slate-200 selection:bg-blue-500/30 font-sans overflow-hidden">
@@ -38,7 +42,7 @@ export default function LandingPage() {
             <Link href="#depoimentos" className="hover:text-white transition">Resultados</Link>
             <Link href="#planos" className="hover:text-white transition">Planos</Link>
           </div>
-          <Link href="#" className="px-5 py-2 text-sm font-medium text-white bg-white/10 hover:bg-white/20 border border-white/10 rounded-full backdrop-blur-md transition">
+          <Link href={waLinkGeral} target="_blank" rel="noopener noreferrer" className="px-5 py-2 text-sm font-medium text-white bg-white/10 hover:bg-white/20 border border-white/10 rounded-full backdrop-blur-md transition">
             Solicitar Acesso
           </Link>
         </nav>
@@ -59,7 +63,7 @@ export default function LandingPage() {
             O Marketing Intelligence OS une Inteligência Artificial, dados, automação e estratégia para ajudar empresas a tomar decisões melhores, criar campanhas mais eficientes e acelerar resultados.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link href="#" className="w-full sm:w-auto px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white rounded-full font-semibold text-lg transition shadow-[0_0_30px_-5px_rgba(37,99,235,0.5)] flex items-center justify-center gap-2">
+            <Link href={waLinkGeral} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white rounded-full font-semibold text-lg transition shadow-[0_0_30px_-5px_rgba(37,99,235,0.5)] flex items-center justify-center gap-2">
               Começar minha jornada inteligente <ArrowRight className="w-5 h-5" />
             </Link>
             <Link href="#solucao" className="w-full sm:w-auto px-8 py-4 bg-white/5 hover:bg-white/10 border border-white/10 text-white rounded-full font-semibold text-lg backdrop-blur-sm transition flex items-center justify-center gap-2">
@@ -446,6 +450,7 @@ export default function LandingPage() {
                 subtitle: "Para pequenas empresas",
                 desc: "Ideal para estruturar os primeiros processos e organizar os dados de marketing.", 
                 highlight: false,
+                link: waLinkGeral,
                 features: [
                   "Até 3 usuários na plataforma",
                   "Módulo AI Marketing Strategist básico",
@@ -459,6 +464,7 @@ export default function LandingPage() {
                 subtitle: "Para equipes de marketing",
                 desc: "Perfeito para empresas em expansão que exigem automação avançada e escala.", 
                 highlight: true,
+                link: waLinkPro,
                 features: [
                   "Até 10 usuários na plataforma",
                   "Todos os 6 módulos de inteligência inclusos",
@@ -473,6 +479,7 @@ export default function LandingPage() {
                 subtitle: "Para grandes operações",
                 desc: "Inteligência avançada, máxima segurança e personalização sob medida.", 
                 highlight: false,
+                link: waLinkEnterprise,
                 features: [
                   "Usuários ilimitados",
                   "Arquitetura SaaS dedicada",
@@ -505,7 +512,7 @@ export default function LandingPage() {
                 </div>
 
                 <div className="pt-4 border-t border-white/10">
-                  <Link href="#" className={`w-full block text-center py-3.5 rounded-full font-semibold transition ${plan.highlight ? 'bg-blue-600 hover:bg-blue-500 text-white shadow-[0_0_20px_-5px_rgba(37,99,235,0.5)]' : 'bg-white/10 hover:bg-white/20 text-white'}`}>
+                  <Link href={plan.link} target="_blank" rel="noopener noreferrer" className={`w-full block text-center py-3.5 rounded-full font-semibold transition ${plan.highlight ? 'bg-blue-600 hover:bg-blue-500 text-white shadow-[0_0_20px_-5px_rgba(37,99,235,0.5)]' : 'bg-white/10 hover:bg-white/20 text-white'}`}>
                     Solicitar acesso
                   </Link>
                 </div>
@@ -514,7 +521,7 @@ export default function LandingPage() {
           </div>
         </section>
 
-        {/* 10. FAQ INTERATIVO (SANFONA / ACCORDION) */}
+        {/* 10. FAQ INTERATIVO */}
         <section className="py-24 px-6 max-w-3xl mx-auto border-t border-white/5">
           <h2 className="text-3xl font-bold text-center text-white mb-12">Perguntas Frequentes</h2>
           <div className="space-y-4">
@@ -569,13 +576,13 @@ export default function LandingPage() {
             <p className="text-xl text-slate-400 mb-10 max-w-2xl mx-auto">
               Comece agora a transformar dados em decisões e decisões em crescimento acelerado.
             </p>
-            <Link href="#" className="inline-block px-10 py-5 bg-blue-600 hover:bg-blue-500 text-white rounded-full font-bold text-lg transition shadow-[0_0_40px_-10px_rgba(37,99,235,0.6)]">
+            <Link href={waLinkGeral} target="_blank" rel="noopener noreferrer" className="inline-block px-10 py-5 bg-blue-600 hover:bg-blue-500 text-white rounded-full font-bold text-lg transition shadow-[0_0_40px_-10px_rgba(37,99,235,0.6)]">
               Entrar para o Marketing Intelligence OS
             </Link>
           </div>
         </section>
         
-        {/* RODAPÉ CORPORATIVO COMPLETO E CONECTADO COM ROTAS REAIS */}
+        {/* RODAPÉ CORPORATIVO COMPLETO */}
         <footer className="py-16 px-6 max-w-7xl mx-auto border-t border-white/5 text-slate-500 text-sm">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
             <div>
