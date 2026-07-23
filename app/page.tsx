@@ -575,7 +575,7 @@ export default function LandingPage() {
           </div>
         </section>
         
-        {/* RODAPÉ CORPORATIVO COMPLETO */}
+        {/* RODAPÉ CORPORATIVO COMPLETO E CONECTADO */}
         <footer className="py-16 px-6 max-w-7xl mx-auto border-t border-white/5 text-slate-500 text-sm">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
             <div>
@@ -592,23 +592,23 @@ export default function LandingPage() {
               <ul className="space-y-2.5 text-xs">
                 <li><Link href="#solucao" className="hover:text-white transition">Módulos IA</Link></li>
                 <li><Link href="#planos" className="hover:text-white transition">Planos e Preços</Link></li>
-                <li><Link href="#" className="hover:text-white transition">Segurança Enterprise</Link></li>
+                <li><Link href="/seguranca" className="hover:text-white transition">Segurança Enterprise</Link></li>
               </ul>
             </div>
             <div>
               <h4 className="text-white font-semibold text-xs uppercase tracking-wider mb-4">Empresa</h4>
               <ul className="space-y-2.5 text-xs">
-                <li><Link href="#" className="hover:text-white transition">Sobre nós</Link></li>
-                <li><Link href="#" className="hover:text-white transition">Carreiras</Link></li>
-                <li><Link href="#" className="hover:text-white transition">Contato</Link></li>
+                <li><Link href="/sobre" className="hover:text-white transition">Sobre nós</Link></li>
+                <li><Link href="/carreiras" className="hover:text-white transition">Carreiras</Link></li>
+                <li><Link href="/contato" className="hover:text-white transition">Contato</Link></li>
               </ul>
             </div>
             <div>
               <h4 className="text-white font-semibold text-xs uppercase tracking-wider mb-4">Legal</h4>
               <ul className="space-y-2.5 text-xs">
-                <li><Link href="#" className="hover:text-white transition">Termos de Uso</Link></li>
-                <li><Link href="#" className="hover:text-white transition">Política de Privacidade</Link></li>
-                <li><Link href="#" className="hover:text-white transition">Configurações de Cookies</Link></li>
+                <li><Link href="/termos" className="hover:text-white transition">Termos de Uso</Link></li>
+                <li><Link href="/privacidade" className="hover:text-white transition">Política de Privacidade</Link></li>
+                <li><Link href="/cookies" className="hover:text-white transition">Configurações de Cookies</Link></li>
               </ul>
             </div>
           </div>
