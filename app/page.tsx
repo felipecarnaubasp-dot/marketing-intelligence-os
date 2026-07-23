@@ -324,7 +324,7 @@ export default function LandingPage() {
           </div>
         </section>
 
-        {/* NOVA SEÇÃO: DEPOIMENTOS / PROVA SOCIAL */}
+        {/* DEPOIMENTOS / PROVA SOCIAL */}
         <section id="depoimentos" className="py-24 px-6 max-w-7xl mx-auto border-t border-white/5">
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-1 text-yellow-400 mb-3">
@@ -575,7 +575,7 @@ export default function LandingPage() {
           </div>
         </section>
         
-        {/* RODAPÉ CORPORATIVO COMPLETO E CONECTADO */}
+        {/* RODAPÉ CORPORATIVO COMPLETO E CONECTADO COM ROTAS REAIS */}
         <footer className="py-16 px-6 max-w-7xl mx-auto border-t border-white/5 text-slate-500 text-sm">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
             <div>
