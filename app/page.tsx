@@ -1,5 +1,6 @@
 "use client";
 import React from 'react';
+import Link from 'next/link';
 import { 
   Brain, BarChart3, Bot, Zap, Shield, CheckCircle2, 
   ArrowRight, Search, Target, Users, Briefcase, 
@@ -25,13 +26,13 @@ export default function LandingPage() {
             <span className="font-bold text-xl tracking-tight text-white">Marketing OS</span>
           </div>
           <div className="hidden md:flex gap-8 text-sm font-medium text-slate-400">
-            <a href="#solucao" className="hover:text-white transition">Solução</a>
-            <a href="#beneficios" className="hover:text-white transition">Benefícios</a>
-            <a href="#planos" className="hover:text-white transition">Planos</a>
+            <Link href="#solucao" className="hover:text-white transition">Solução</Link>
+            <Link href="#beneficios" className="hover:text-white transition">Benefícios</Link>
+            <Link href="#planos" className="hover:text-white transition">Planos</Link>
           </div>
-          <button className="px-5 py-2 text-sm font-medium text-white bg-white/10 hover:bg-white/20 border border-white/10 rounded-full backdrop-blur-md transition">
+          <Link href="#" className="px-5 py-2 text-sm font-medium text-white bg-white/10 hover:bg-white/20 border border-white/10 rounded-full backdrop-blur-md transition">
             Solicitar Acesso
-          </button>
+          </Link>
         </nav>
 
         {/* 1. HERO SECTION */}
@@ -50,20 +51,19 @@ export default function LandingPage() {
             O Marketing Intelligence OS une Inteligência Artificial, dados, automação e estratégia para ajudar empresas a tomar decisões melhores, criar campanhas mais eficientes e acelerar resultados.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <button className="w-full sm:w-auto px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white rounded-full font-semibold text-lg transition shadow-[0_0_30px_-5px_rgba(37,99,235,0.5)] flex items-center justify-center gap-2">
+            <Link href="#" className="w-full sm:w-auto px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white rounded-full font-semibold text-lg transition shadow-[0_0_30px_-5px_rgba(37,99,235,0.5)] flex items-center justify-center gap-2">
               Começar minha jornada inteligente <ArrowRight className="w-5 h-5" />
-            </button>
-            <button className="w-full sm:w-auto px-8 py-4 bg-white/5 hover:bg-white/10 border border-white/10 text-white rounded-full font-semibold text-lg backdrop-blur-sm transition flex items-center justify-center gap-2">
+            </Link>
+            <Link href="#solucao" className="w-full sm:w-auto px-8 py-4 bg-white/5 hover:bg-white/10 border border-white/10 text-white rounded-full font-semibold text-lg backdrop-blur-sm transition flex items-center justify-center gap-2">
               Ver como funciona
-            </button>
+            </Link>
           </div>
 
-          {/* DASHBOARD MOCKUP MELHORADO */}
+          {/* DASHBOARD MOCKUP */}
           <div className="mt-20 relative mx-auto max-w-5xl">
             <div className="absolute inset-0 bg-gradient-to-t from-[#0a0f1c] via-transparent to-transparent z-10 pointer-events-none" />
             <div className="rounded-2xl border border-blue-500/30 bg-slate-950/80 backdrop-blur-2xl p-4 shadow-[0_0_50px_-10px_rgba(37,99,235,0.3)] overflow-hidden ring-1 ring-white/10">
               
-              {/* Barra superior do sistema */}
               <div className="flex items-center justify-between pb-4 mb-4 border-b border-white/10">
                 <div className="flex items-center gap-2">
                   <span className="w-3 h-3 rounded-full bg-red-500/80 inline-block"></span>
@@ -77,10 +77,7 @@ export default function LandingPage() {
                 </div>
               </div>
 
-              {/* Grid de Conteúdo do Dashboard */}
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-left">
-                
-                {/* Card de Crescimento */}
                 <div className="p-4 rounded-xl bg-white/[0.03] border border-white/5 relative overflow-hidden">
                   <div className="text-xs text-slate-400 mb-1">ROI das Campanhas</div>
                   <div className="text-2xl font-bold text-white mb-2">+348.5%</div>
@@ -90,7 +87,6 @@ export default function LandingPage() {
                   <span className="text-[10px] text-blue-400 mt-2 inline-block">Otimizado por IA há 2 min</span>
                 </div>
 
-                {/* Card de Leads / Conversão */}
                 <div className="p-4 rounded-xl bg-white/[0.03] border border-white/5 relative overflow-hidden">
                   <div className="text-xs text-slate-400 mb-1">Leads Qualificados</div>
                   <div className="text-2xl font-bold text-white mb-2">14,820</div>
@@ -100,7 +96,6 @@ export default function LandingPage() {
                   <span className="text-[10px] text-slate-400 mt-2 inline-block">Segmentação preditiva ativa</span>
                 </div>
 
-                {/* Card de Decisões */}
                 <div className="p-4 rounded-xl bg-white/[0.03] border border-white/5 relative overflow-hidden flex flex-col justify-between">
                   <div>
                     <div className="text-xs text-slate-400 mb-1">Insights Automáticos</div>
@@ -110,10 +105,8 @@ export default function LandingPage() {
                     Revisar sugestões →
                   </div>
                 </div>
-
               </div>
 
-              {/* Área Inferior simulando gráfico de performance */}
               <div className="mt-4 p-4 rounded-xl bg-white/[0.02] border border-white/5 flex items-center justify-between">
                 <div className="flex items-center gap-3">
                   <div className="p-2.5 rounded-lg bg-blue-500/10 text-blue-400">
@@ -255,7 +248,6 @@ export default function LandingPage() {
           </div>
           
           <div className="relative">
-            {/* Timeline line */}
             <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-px bg-gradient-to-b from-blue-500/0 via-blue-500/50 to-blue-500/0" />
             
             <div className="space-y-12">
@@ -409,9 +401,9 @@ export default function LandingPage() {
                 <h3 className="text-2xl font-bold text-white mb-2">{plan.name}</h3>
                 <p className="text-slate-400 text-sm mb-8">{plan.desc}</p>
                 <div className="mt-auto pt-8 border-t border-white/10">
-                  <button className={`w-full py-3 rounded-full font-semibold transition ${plan.highlight ? 'bg-blue-600 hover:bg-blue-500 text-white' : 'bg-white/10 hover:bg-white/20 text-white'}`}>
+                  <Link href="#" className={`w-full block text-center py-3 rounded-full font-semibold transition ${plan.highlight ? 'bg-blue-600 hover:bg-blue-500 text-white' : 'bg-white/10 hover:bg-white/20 text-white'}`}>
                     Solicitar acesso
-                  </button>
+                  </Link>
                 </div>
               </div>
             ))}
@@ -462,9 +454,9 @@ export default function LandingPage() {
             <p className="text-xl text-slate-400 mb-10 max-w-2xl mx-auto">
               Comece agora a transformar dados em decisões e decisões em crescimento acelerado.
             </p>
-            <button className="px-10 py-5 bg-blue-600 hover:bg-blue-500 text-white rounded-full font-bold text-lg transition shadow-[0_0_40px_-10px_rgba(37,99,235,0.6)]">
+            <Link href="#" className="inline-block px-10 py-5 bg-blue-600 hover:bg-blue-500 text-white rounded-full font-bold text-lg transition shadow-[0_0_40px_-10px_rgba(37,99,235,0.6)]">
               Entrar para o Marketing Intelligence OS
-            </button>
+            </Link>
           </div>
         </section>
         
