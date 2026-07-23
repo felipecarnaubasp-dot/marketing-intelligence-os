@@ -1,4 +1,3 @@
-
 "use client";
 import React from 'react';
 import { 
@@ -19,7 +18,7 @@ export default function LandingPage() {
 
       <div className="relative z-10">
         
-        {/* NAV (Opcional, apenas para dar contexto de SaaS) */}
+        {/* NAV */}
         <nav className="flex items-center justify-between px-6 py-6 max-w-7xl mx-auto border-b border-white/5">
           <div className="flex items-center gap-2">
             <Brain className="w-8 h-8 text-blue-500" />
@@ -59,20 +58,77 @@ export default function LandingPage() {
             </button>
           </div>
 
-          {/* DASHBOARD MOCKUP */}
+          {/* DASHBOARD MOCKUP MELHORADO */}
           <div className="mt-20 relative mx-auto max-w-5xl">
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0a0f1c] via-transparent to-transparent z-10" />
-            <div className="rounded-2xl border border-white/10 bg-black/40 backdrop-blur-xl p-2 shadow-2xl overflow-hidden ring-1 ring-white/10">
-              <div className="rounded-xl border border-white/5 bg-slate-900/50 aspect-video relative overflow-hidden flex items-center justify-center">
-                <div className="text-center opacity-50">
-                  <BarChart3 className="w-16 h-16 mx-auto mb-4 text-blue-400" />
-                  <p className="text-sm font-mono">Agentes IA processando dados de campanhas...</p>
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0a0f1c] via-transparent to-transparent z-10 pointer-events-none" />
+            <div className="rounded-2xl border border-blue-500/30 bg-slate-950/80 backdrop-blur-2xl p-4 shadow-[0_0_50px_-10px_rgba(37,99,235,0.3)] overflow-hidden ring-1 ring-white/10">
+              
+              {/* Barra superior do sistema */}
+              <div className="flex items-center justify-between pb-4 mb-4 border-b border-white/10">
+                <div className="flex items-center gap-2">
+                  <span className="w-3 h-3 rounded-full bg-red-500/80 inline-block"></span>
+                  <span className="w-3 h-3 rounded-full bg-yellow-500/80 inline-block"></span>
+                  <span className="w-3 h-3 rounded-full bg-green-500/80 inline-block"></span>
+                  <span className="text-xs font-mono text-slate-400 ml-2">marketing-intelligence-os.app/dashboard</span>
                 </div>
-                {/* Holographic glowing lines simulating dashboard */}
-                <div className="absolute top-10 left-10 w-48 h-32 bg-white/5 border border-white/10 rounded-lg"></div>
-                <div className="absolute top-10 right-10 w-64 h-64 bg-white/5 border border-white/10 rounded-full"></div>
-                <div className="absolute bottom-10 left-1/4 right-1/4 h-32 bg-white/5 border border-white/10 rounded-lg"></div>
+                <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-mono">
+                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+                  IA Agents: Ativos (24/7)
+                </div>
               </div>
+
+              {/* Grid de Conteúdo do Dashboard */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-left">
+                
+                {/* Card de Crescimento */}
+                <div className="p-4 rounded-xl bg-white/[0.03] border border-white/5 relative overflow-hidden">
+                  <div className="text-xs text-slate-400 mb-1">ROI das Campanhas</div>
+                  <div className="text-2xl font-bold text-white mb-2">+348.5%</div>
+                  <div className="w-full bg-white/10 h-1.5 rounded-full overflow-hidden">
+                    <div className="bg-gradient-to-r from-blue-500 to-purple-500 h-full w-[85%]"></div>
+                  </div>
+                  <span className="text-[10px] text-blue-400 mt-2 inline-block">Otimizado por IA há 2 min</span>
+                </div>
+
+                {/* Card de Leads / Conversão */}
+                <div className="p-4 rounded-xl bg-white/[0.03] border border-white/5 relative overflow-hidden">
+                  <div className="text-xs text-slate-400 mb-1">Leads Qualificados</div>
+                  <div className="text-2xl font-bold text-white mb-2">14,820</div>
+                  <div className="flex items-center gap-1 text-xs text-emerald-400 font-medium">
+                    <span>↑ +28.4% vs mês anterior</span>
+                  </div>
+                  <span className="text-[10px] text-slate-400 mt-2 inline-block">Segmentação preditiva ativa</span>
+                </div>
+
+                {/* Card de Decisões */}
+                <div className="p-4 rounded-xl bg-white/[0.03] border border-white/5 relative overflow-hidden flex flex-col justify-between">
+                  <div>
+                    <div className="text-xs text-slate-400 mb-1">Insights Automáticos</div>
+                    <div className="text-sm font-semibold text-white">4 Estratégias geradas</div>
+                  </div>
+                  <div className="mt-2 text-[11px] bg-blue-500/20 text-blue-300 px-2.5 py-1 rounded border border-blue-500/35 inline-block w-fit">
+                    Revisar sugestões →
+                  </div>
+                </div>
+
+              </div>
+
+              {/* Área Inferior simulando gráfico de performance */}
+              <div className="mt-4 p-4 rounded-xl bg-white/[0.02] border border-white/5 flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <div className="p-2.5 rounded-lg bg-blue-500/10 text-blue-400">
+                    <BarChart3 className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <div className="text-sm font-medium text-white">Agente Estrategista em Execução</div>
+                    <div className="text-xs text-slate-400">Analisando gargalos de conversão e ajustando lances de anúncios...</div>
+                  </div>
+                </div>
+                <div className="hidden sm:block text-xs font-mono text-purple-400 bg-purple-500/10 px-3 py-1.5 rounded-lg border border-purple-500/20">
+                  Status: 100% Autônomo
+                </div>
+              </div>
+
             </div>
           </div>
         </section>
