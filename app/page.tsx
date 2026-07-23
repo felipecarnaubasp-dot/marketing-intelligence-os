@@ -1,65 +1,423 @@
-import Image from "next/image";
 
-export default function Home() {
+"use client";
+import React from 'react';
+import { 
+  Brain, BarChart3, Bot, Zap, Shield, CheckCircle2, 
+  ArrowRight, Search, Target, Users, Briefcase, 
+  Layers, LineChart, Lock, ChevronRight 
+} from 'lucide-react';
+
+export default function LandingPage() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+    <div className="min-h-screen bg-[#0a0f1c] text-slate-200 selection:bg-blue-500/30 font-sans overflow-hidden">
+      
+      {/* BACKGROUND GLOW EFFECTS */}
+      <div className="fixed inset-0 z-0 pointer-events-none">
+        <div className="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] rounded-full bg-blue-600/10 blur-[120px]" />
+        <div className="absolute bottom-[-20%] right-[-10%] w-[50%] h-[50%] rounded-full bg-purple-600/10 blur-[120px]" />
+      </div>
+
+      <div className="relative z-10">
+        
+        {/* NAV (Opcional, apenas para dar contexto de SaaS) */}
+        <nav className="flex items-center justify-between px-6 py-6 max-w-7xl mx-auto border-b border-white/5">
+          <div className="flex items-center gap-2">
+            <Brain className="w-8 h-8 text-blue-500" />
+            <span className="font-bold text-xl tracking-tight text-white">Marketing OS</span>
+          </div>
+          <div className="hidden md:flex gap-8 text-sm font-medium text-slate-400">
+            <a href="#solucao" className="hover:text-white transition">Solução</a>
+            <a href="#beneficios" className="hover:text-white transition">Benefícios</a>
+            <a href="#planos" className="hover:text-white transition">Planos</a>
+          </div>
+          <button className="px-5 py-2 text-sm font-medium text-white bg-white/10 hover:bg-white/20 border border-white/10 rounded-full backdrop-blur-md transition">
+            Solicitar Acesso
+          </button>
+        </nav>
+
+        {/* 1. HERO SECTION */}
+        <section className="pt-32 pb-20 px-6 max-w-7xl mx-auto text-center">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-semibold uppercase tracking-wider mb-8">
+            <span className="flex h-2 w-2 rounded-full bg-blue-500 animate-pulse"></span>
+            A Nova Era do Marketing B2B
+          </div>
+          <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-white mb-8 leading-[1.1]">
+            Transforme seu marketing em uma <br className="hidden md:block" />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">
+              máquina inteligente
+            </span> de crescimento.
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+          <p className="text-lg md:text-xl text-slate-400 max-w-3xl mx-auto mb-10 leading-relaxed">
+            O Marketing Intelligence OS une Inteligência Artificial, dados, automação e estratégia para ajudar empresas a tomar decisões melhores, criar campanhas mais eficientes e acelerar resultados.
           </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <button className="w-full sm:w-auto px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white rounded-full font-semibold text-lg transition shadow-[0_0_30px_-5px_rgba(37,99,235,0.5)] flex items-center justify-center gap-2">
+              Começar minha jornada inteligente <ArrowRight className="w-5 h-5" />
+            </button>
+            <button className="w-full sm:w-auto px-8 py-4 bg-white/5 hover:bg-white/10 border border-white/10 text-white rounded-full font-semibold text-lg backdrop-blur-sm transition flex items-center justify-center gap-2">
+              Ver como funciona
+            </button>
+          </div>
+
+          {/* DASHBOARD MOCKUP */}
+          <div className="mt-20 relative mx-auto max-w-5xl">
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0a0f1c] via-transparent to-transparent z-10" />
+            <div className="rounded-2xl border border-white/10 bg-black/40 backdrop-blur-xl p-2 shadow-2xl overflow-hidden ring-1 ring-white/10">
+              <div className="rounded-xl border border-white/5 bg-slate-900/50 aspect-video relative overflow-hidden flex items-center justify-center">
+                <div className="text-center opacity-50">
+                  <BarChart3 className="w-16 h-16 mx-auto mb-4 text-blue-400" />
+                  <p className="text-sm font-mono">Agentes IA processando dados de campanhas...</p>
+                </div>
+                {/* Holographic glowing lines simulating dashboard */}
+                <div className="absolute top-10 left-10 w-48 h-32 bg-white/5 border border-white/10 rounded-lg"></div>
+                <div className="absolute top-10 right-10 w-64 h-64 bg-white/5 border border-white/10 rounded-full"></div>
+                <div className="absolute bottom-10 left-1/4 right-1/4 h-32 bg-white/5 border border-white/10 rounded-lg"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* 2. A DOR DO MERCADO */}
+        <section className="py-24 px-6 max-w-7xl mx-auto border-t border-white/5">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
+              O problema não é falta de marketing.<br />
+              <span className="text-slate-500">É falta de inteligência.</span>
+            </h2>
+          </div>
+          
+          <div className="grid md:grid-cols-2 gap-6">
+            {[
+              {
+                title: "Você investe em marketing, mas não sabe exatamente o que funciona.",
+                points: ["Campanhas sem análise profunda", "Dinheiro desperdiçado", "Decisões baseadas em opinião"]
+              },
+              {
+                title: "Sua equipe perde horas criando estratégias manualmente.",
+                points: ["Pesquisas demoradas", "Relatórios manuais", "Criação de conteúdo lenta"]
+              },
+              {
+                title: "Os dados estão espalhados em vários lugares.",
+                points: ["Planilhas sem fim", "Ferramentas desconectadas", "Informações perdidas"]
+              },
+              {
+                title: "Sua empresa cresce, mas o marketing não acompanha.",
+                points: ["Falta de processos", "Falta de previsibilidade", "Dificuldade de escala"]
+              }
+            ].map((pain, i) => (
+              <div key={i} className="p-8 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-red-500/30 transition-colors group">
+                <h3 className="text-xl font-semibold text-white mb-6">{pain.title}</h3>
+                <ul className="space-y-3">
+                  {pain.points.map((point, j) => (
+                    <li key={j} className="flex items-start gap-3 text-slate-400">
+                      <span className="mt-1 block w-1.5 h-1.5 rounded-full bg-red-500/50 group-hover:bg-red-500 transition-colors" />
+                      {point}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* 3. A SOLUÇÃO */}
+        <section id="solucao" className="py-24 px-6 max-w-7xl mx-auto border-t border-white/5">
+          <div className="text-center mb-16 max-w-3xl mx-auto">
+            <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
+              Conheça o sistema operacional inteligente do seu marketing.
+            </h2>
+            <p className="text-xl text-slate-400">
+              O Marketing Intelligence OS transforma informações complexas em decisões estratégicas simples.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              {
+                icon: Target,
+                title: "AI Marketing Strategist",
+                desc: "Seu estrategista de marketing com inteligência artificial.",
+                items: ["Cria planos estratégicos", "Analisa oportunidades", "Identifica gargalos", "Sugere ações"]
+              },
+              {
+                icon: BarChart3,
+                title: "Analytics Intelligence",
+                desc: "Transforme dados brutos em decisões precisas.",
+                items: ["Dashboards inteligentes", "Acompanhamento de KPIs", "Análise de campanhas", "Identificação de padrões"]
+              },
+              {
+                icon: Search,
+                title: "AI Content Creator",
+                desc: "Crie conteúdos estratégicos e direcionados com IA.",
+                items: ["Posts e Artigos", "Anúncios (Ads)", "Roteiros de vídeo", "Calendários editoriais"]
+              },
+              {
+                icon: Zap,
+                title: "Campaign Intelligence",
+                desc: "Melhore a performance das suas campanhas em tempo real.",
+                items: ["Analisa desempenho", "Identifica oportunidades", "Sugere otimizações"]
+              },
+              {
+                icon: Users,
+                title: "CRM Intelligence",
+                desc: "Centralize e aprofunde o relacionamento com o cliente.",
+                items: ["Gestão de leads", "Histórico de clientes", "Mapeamento de oportunidades", "Acompanhamento comercial"]
+              },
+              {
+                icon: Bot,
+                title: "AI Marketing Agents",
+                desc: "Uma equipe de especialistas trabalhando 24/7 para você.",
+                items: ["Agente Estrategista", "Agente Analista", "Agente Criador", "Agente Pesquisador"]
+              }
+            ].map((module, i) => (
+              <div key={i} className="p-8 rounded-2xl bg-white/[0.03] border border-white/10 hover:border-blue-500/50 transition-all hover:-translate-y-1 relative overflow-hidden group">
+                <div className="absolute top-0 right-0 p-6 opacity-5 group-hover:opacity-10 transition-opacity">
+                  <module.icon className="w-24 h-24" />
+                </div>
+                <module.icon className="w-10 h-10 text-blue-400 mb-6" />
+                <h3 className="text-xl font-bold text-white mb-2">{module.title}</h3>
+                <p className="text-sm text-slate-400 mb-6">{module.desc}</p>
+                <ul className="space-y-2">
+                  {module.items.map((item, j) => (
+                    <li key={j} className="flex items-center gap-2 text-sm text-slate-300">
+                      <CheckCircle2 className="w-4 h-4 text-blue-500" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* 4. COMO FUNCIONA */}
+        <section className="py-24 px-6 max-w-7xl mx-auto border-t border-white/5">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
+              Do caos ao crescimento em poucos passos.
+            </h2>
+          </div>
+          
+          <div className="relative">
+            {/* Timeline line */}
+            <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-px bg-gradient-to-b from-blue-500/0 via-blue-500/50 to-blue-500/0" />
+            
+            <div className="space-y-12">
+              {[
+                {
+                  step: "01",
+                  title: "Conecte sua empresa",
+                  desc: "Cadastre as informações vitais, integre suas fontes de dados e defina seu cenário atual."
+                },
+                {
+                  step: "02",
+                  title: "A IA entende seu negócio",
+                  desc: "Nossos algoritmos analisam o mercado, mapeiam seu público, processam dados históricos e alinham seus objetivos."
+                },
+                {
+                  step: "03",
+                  title: "Receba inteligência estratégica",
+                  desc: "A plataforma gera automaticamente insights acionáveis, recomendações de alto impacto e planos de ação detalhados."
+                },
+                {
+                  step: "04",
+                  title: "Execute e acompanhe resultados",
+                  desc: "Tenha controle total da operação. Monitore a execução, meça os KPIs e deixe a IA otimizar em tempo real."
+                }
+              ].map((step, i) => (
+                <div key={i} className={`flex flex-col md:flex-row items-center gap-8 ${i % 2 !== 0 ? 'md:flex-row-reverse' : ''}`}>
+                  <div className={`flex-1 ${i % 2 !== 0 ? 'text-left' : 'md:text-right'}`}>
+                    <span className="text-blue-500 font-mono text-xl font-bold mb-2 block">{step.step}</span>
+                    <h3 className="text-2xl font-bold text-white mb-3">{step.title}</h3>
+                    <p className="text-slate-400 text-lg">{step.desc}</p>
+                  </div>
+                  <div className="w-12 h-12 rounded-full bg-[#0a0f1c] border-2 border-blue-500 flex items-center justify-center z-10 shadow-[0_0_15px_rgba(59,130,246,0.5)]">
+                    <div className="w-3 h-3 bg-blue-500 rounded-full" />
+                  </div>
+                  <div className="flex-1" />
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* 5. BENEFÍCIOS */}
+        <section id="beneficios" className="py-24 px-6 max-w-7xl mx-auto border-t border-white/5">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
+              Uma nova forma de administrar marketing.
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              { title: "Mais decisões inteligentes", desc: "Troque intuições e opiniões por dados concretos e precisos." },
+              { title: "Menos trabalho manual", desc: "Automatize processos repetitivos e libere tempo para estratégia." },
+              { title: "Mais velocidade", desc: "Crie estratégias complexas e campanhas direcionadas em minutos." },
+              { title: "Mais controle", desc: "Tenha uma visão 360º e em tempo real de toda a operação de marketing." },
+              { title: "Mais escala", desc: "Cresça seu faturamento e impacto sem precisar aumentar a complexidade." }
+            ].map((benefit, i) => (
+              <div key={i} className={`p-8 rounded-2xl bg-gradient-to-br from-white/[0.05] to-transparent border border-white/10 ${i === 4 ? 'lg:col-span-2' : ''}`}>
+                <h3 className="text-xl font-bold text-white mb-3 flex items-center gap-3">
+                  <CheckCircle2 className="text-purple-400 w-5 h-5" />
+                  {benefit.title}
+                </h3>
+                <p className="text-slate-400">{benefit.desc}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* 6. PARA QUEM É */}
+        <section className="py-24 px-6 max-w-7xl mx-auto border-t border-white/5">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              { icon: Briefcase, title: "Empresas", desc: "Que precisam estruturar e profissionalizar o marketing." },
+              { icon: Target, title: "Gestores", desc: "Que precisam de visão estratégica e controle de KPIs." },
+              { icon: Layers, title: "Agências", desc: "Que precisam entregar mais valor e escalar operações." },
+              { icon: Zap, title: "Startups", desc: "Que precisam tracionar rápido com recursos otimizados." }
+            ].map((target, i) => (
+              <div key={i} className="p-8 rounded-2xl bg-white/[0.02] border border-white/5 text-center hover:bg-white/[0.04] transition">
+                <target.icon className="w-12 h-12 text-blue-400 mx-auto mb-6" />
+                <h3 className="text-xl font-bold text-white mb-3">{target.title}</h3>
+                <p className="text-slate-400">{target.desc}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* 7. COMPARAÇÃO */}
+        <section className="py-24 px-6 max-w-4xl mx-auto border-t border-white/5">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
+              Marketing tradicional vs <span className="text-blue-400">Marketing inteligente</span>
+            </h2>
+          </div>
+          
+          <div className="rounded-2xl border border-white/10 overflow-hidden bg-white/[0.02] backdrop-blur-sm">
+            <div className="grid grid-cols-2 border-b border-white/10 bg-white/[0.05]">
+              <div className="p-6 text-lg font-semibold text-slate-300">Marketing Tradicional</div>
+              <div className="p-6 text-lg font-bold text-blue-400 border-l border-white/10">Marketing Intelligence OS</div>
+            </div>
+            {[
+              ["Decisões por opinião", "Decisões por dados"],
+              ["Processos manuais", "Automação inteligente"],
+              ["Muitas ferramentas desconectadas", "Plataforma integrada (All-in-one)"],
+              ["Relatórios demorados", "Insights instantâneos e preditivos"],
+              ["Estratégia limitada", "Inteligência contínua 24/7"]
+            ].map((row, i) => (
+              <div key={i} className="grid grid-cols-2 border-b border-white/5 last:border-0 hover:bg-white/[0.02] transition">
+                <div className="p-6 text-slate-400">{row[0]}</div>
+                <div className="p-6 font-medium text-white border-l border-white/10 flex items-center gap-3">
+                  <CheckCircle2 className="w-5 h-5 text-blue-500" /> {row[1]}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* 8. SEGURANÇA E CONFIANÇA */}
+        <section className="py-20 px-6 border-y border-white/5 bg-black/20">
+          <div className="max-w-4xl mx-auto text-center flex flex-col items-center">
+            <Shield className="w-16 h-16 text-slate-300 mb-6" />
+            <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
+              Construído para empresas que precisam de inteligência, segurança e escala.
+            </h2>
+            <div className="flex flex-wrap justify-center gap-4 mt-8">
+              <span className="px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm font-medium">Arquitetura SaaS Premium</span>
+              <span className="px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm font-medium">Dados 100% Protegidos</span>
+              <span className="px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm font-medium">Ambiente Profissional Seguro</span>
+            </div>
+          </div>
+        </section>
+
+        {/* 9. PLANOS */}
+        <section id="planos" className="py-24 px-6 max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">Pronto para escalar?</h2>
+            <p className="text-xl text-slate-400">Escolha o plano ideal para o momento da sua empresa.</p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            {[
+              { name: "Starter", desc: "Para pequenas empresas estruturando o marketing.", highlight: false },
+              { name: "Professional", desc: "Para equipes de marketing que precisam de escala.", highlight: true },
+              { name: "Enterprise", desc: "Para corporações que exigem inteligência avançada.", highlight: false }
+            ].map((plan, i) => (
+              <div key={i} className={`p-8 rounded-3xl border ${plan.highlight ? 'bg-blue-900/10 border-blue-500/50 shadow-[0_0_30px_-5px_rgba(37,99,235,0.2)] relative transform md:-translate-y-4' : 'bg-white/[0.02] border-white/10'} flex flex-col`}>
+                {plan.highlight && (
+                  <span className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 px-3 py-1 bg-blue-500 text-white text-xs font-bold rounded-full uppercase tracking-wider">
+                    Mais Escolhido
+                  </span>
+                )}
+                <h3 className="text-2xl font-bold text-white mb-2">{plan.name}</h3>
+                <p className="text-slate-400 text-sm mb-8">{plan.desc}</p>
+                <div className="mt-auto pt-8 border-t border-white/10">
+                  <button className={`w-full py-3 rounded-full font-semibold transition ${plan.highlight ? 'bg-blue-600 hover:bg-blue-500 text-white' : 'bg-white/10 hover:bg-white/20 text-white'}`}>
+                    Solicitar acesso
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* 10. FAQ */}
+        <section className="py-24 px-6 max-w-3xl mx-auto border-t border-white/5">
+          <h2 className="text-3xl font-bold text-center text-white mb-12">Perguntas Frequentes</h2>
+          <div className="space-y-6">
+            {[
+              {
+                q: "O Marketing Intelligence OS substitui minha equipe?",
+                a: "Não. Ele aumenta a capacidade da sua equipe, trazendo inteligência, velocidade e automação para que eles foquem no que importa."
+              },
+              {
+                q: "Preciso entender IA para usar?",
+                a: "Não. A plataforma foi criada do zero para simplificar o uso de inteligência artificial em processos de negócios."
+              },
+              {
+                q: "Serve para qualquer empresa?",
+                a: "Sim. A estrutura da nossa inteligência adapta-se a diferentes segmentos, tamanhos e objetivos de mercado."
+              },
+              {
+                q: "Posso começar pequeno?",
+                a: "Sim. A plataforma cresce de forma escalonável junto com a sua operação e as suas demandas."
+              }
+            ].map((faq, i) => (
+              <div key={i} className="p-6 rounded-2xl bg-white/[0.02] border border-white/5">
+                <h4 className="text-lg font-semibold text-white mb-3 flex items-center gap-2">
+                  <ChevronRight className="w-5 h-5 text-blue-500" />
+                  {faq.q}
+                </h4>
+                <p className="text-slate-400 pl-7">{faq.a}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* 11. SEÇÃO FINAL */}
+        <section className="py-32 px-6 border-t border-white/5 relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent to-blue-900/10 pointer-events-none" />
+          <div className="max-w-4xl mx-auto text-center relative z-10">
+            <h2 className="text-4xl md:text-6xl font-extrabold text-white mb-6 tracking-tight">
+              O futuro do marketing não será manual.<br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">Será inteligente.</span>
+            </h2>
+            <p className="text-xl text-slate-400 mb-10 max-w-2xl mx-auto">
+              Comece agora a transformar dados em decisões e decisões em crescimento acelerado.
+            </p>
+            <button className="px-10 py-5 bg-blue-600 hover:bg-blue-500 text-white rounded-full font-bold text-lg transition shadow-[0_0_40px_-10px_rgba(37,99,235,0.6)]">
+              Entrar para o Marketing Intelligence OS
+            </button>
+          </div>
+        </section>
+        
+        {/* FOOTER BÁSICO */}
+        <footer className="py-8 text-center text-slate-500 text-sm border-t border-white/5">
+          <p>© 2026 Marketing Intelligence OS. Todos os direitos reservados.</p>
+        </footer>
+
+      </div>
     </div>
   );
 }
