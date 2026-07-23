@@ -3,7 +3,7 @@ import React from 'react';
 import Link from 'next/link';
 import { Shield, Lock, CheckCircle2, ArrowLeft } from 'lucide-react';
 
-export default function SegurancaPage() {
+export default function SegurancaPage() { {
   return (
     <div className="min-h-screen bg-[#0a0f1c] text-slate-200 font-sans p-6 md:p-12">
       <div className="max-w-4xl mx-auto">
