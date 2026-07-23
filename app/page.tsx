@@ -14,10 +14,11 @@ export default function LandingPage() {
     setOpenFaq(openFaq === index ? null : index);
   };
 
-  // Link base do WhatsApp com mensagem padrão
+  // Links do WhatsApp com mensagens customizadas para cada plano
+  const waLinkStarter = "https://wa.me/5511967585119?text=Olá!%20Tenho%20interesse%20no%20plano%20Starter%20(R$%20497/mês)%20do%20Marketing%20Intelligence%20OS.";
+  const waLinkPro = "https://wa.me/5511967585119?text=Olá!%20Tenho%20interesse%20no%20plano%20Professional%20(R$%20997/mês)%20do%20Marketing%20Intelligence%20OS.";
+  const waLinkEnterprise = "https://wa.me/5511967585119?text=Olá!%20Tenho%20interesse%20no%20plano%20Enterprise%20(Sob%20Consulta)%20do%20Marketing%20Intelligence%20OS.";
   const waLinkGeral = "https://wa.me/5511967585119?text=Olá!%20Gostaria%20de%20solicitar%20acesso%20ao%20Marketing%20Intelligence%20OS.";
-  const waLinkPro = "https://wa.me/5511967585119?text=Olá!%20Tenho%20interesse%20no%20plano%20Professional%20do%20Marketing%20Intelligence%20OS.";
-  const waLinkEnterprise = "https://wa.me/5511967585119?text=Olá!%20Tenho%20interesse%20no%20plano%20Enterprise%20do%20Marketing%20Intelligence%20OS.";
 
   return (
     <div className="min-h-screen bg-[#0a0f1c] text-slate-200 selection:bg-blue-500/30 font-sans overflow-hidden">
@@ -436,7 +437,7 @@ export default function LandingPage() {
           </div>
         </section>
 
-        {/* 9. PLANOS */}
+        {/* 9. PLANOS (COM VALORES REAIS) */}
         <section id="planos" className="py-24 px-6 max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">Pronto para escalar?</h2>
@@ -448,9 +449,11 @@ export default function LandingPage() {
               { 
                 name: "Starter", 
                 subtitle: "Para pequenas empresas",
+                price: "R$ 497",
+                period: "/mês",
                 desc: "Ideal para estruturar os primeiros processos e organizar os dados de marketing.", 
                 highlight: false,
-                link: waLinkGeral,
+                link: waLinkStarter,
                 features: [
                   "Até 3 usuários na plataforma",
                   "Módulo AI Marketing Strategist básico",
@@ -462,6 +465,8 @@ export default function LandingPage() {
               { 
                 name: "Professional", 
                 subtitle: "Para equipes de marketing",
+                price: "R$ 997",
+                period: "/mês",
                 desc: "Perfeito para empresas em expansão que exigem automação avançada e escala.", 
                 highlight: true,
                 link: waLinkPro,
@@ -477,6 +482,8 @@ export default function LandingPage() {
               { 
                 name: "Enterprise", 
                 subtitle: "Para grandes operações",
+                price: "Sob Consulta",
+                period: "",
                 desc: "Inteligência avançada, máxima segurança e personalização sob medida.", 
                 highlight: false,
                 link: waLinkEnterprise,
@@ -499,6 +506,13 @@ export default function LandingPage() {
                 <div>
                   <h3 className="text-2xl font-bold text-white mb-1">{plan.name}</h3>
                   <p className="text-blue-400 text-xs font-semibold uppercase tracking-wider mb-4">{plan.subtitle}</p>
+                  
+                  {/* Bloco de Valor */}
+                  <div className="mb-6 pb-6 border-b border-white/10 flex items-baseline gap-1">
+                    <span className="text-4xl font-extrabold text-white">{plan.price}</span>
+                    <span className="text-sm text-slate-400">{plan.period}</span>
+                  </div>
+
                   <p className="text-slate-400 text-sm mb-6 pb-6 border-b border-white/10">{plan.desc}</p>
                   
                   <ul className="space-y-3 mb-8">
