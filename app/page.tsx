@@ -7,6 +7,34 @@ import {
   Layers, LineChart, Lock, ChevronDown, Star 
 } from 'lucide-react';
 
+// ==========================================
+// LOGO PREMIUM EXCLUSIVA (SVG Component)
+// ==========================================
+const PremiumLogo = () => (
+  <svg width="42" height="42" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" className="drop-shadow-[0_0_15px_rgba(56,189,248,0.3)] hover:scale-105 transition-transform duration-300">
+    {/* Fundo Glassmorphism */}
+    <rect width="32" height="32" rx="10" fill="#030712" stroke="rgba(56, 189, 248, 0.4)" strokeWidth="1"/>
+    <rect x="2" y="2" width="28" height="28" rx="8" fill="url(#glow-grad)" opacity="0.2"/>
+    
+    {/* Monograma 'M' formando um fluxo de dados */}
+    <path d="M9 21.5V11L16 17L23 11V18.5" stroke="url(#line-grad)" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
+    
+    {/* Ponto / Nó de Inteligência (.OS) */}
+    <circle cx="23" cy="21.5" r="2.5" fill="#38BDF8" className="animate-pulse"/>
+    
+    <defs>
+      <linearGradient id="line-grad" x1="9" y1="11" x2="23" y2="21.5" gradientUnits="userSpaceOnUse">
+        <stop stopColor="#E2E8F0" />
+        <stop offset="1" stopColor="#6366F1" />
+      </linearGradient>
+      <linearGradient id="glow-grad" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
+        <stop stopColor="#38BDF8" />
+        <stop offset="1" stopColor="#6366F1" />
+      </linearGradient>
+    </defs>
+  </svg>
+);
+
 export default function LandingPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
@@ -15,10 +43,10 @@ export default function LandingPage() {
   };
 
   // Links do WhatsApp com mensagens customizadas para cada plano
-  const waLinkStarter = "https://wa.me/5511967585119?text=Olá!%20Gostaria%20de%20ativar%20o%20plano%20Starter%20(Free)%20do%20Marketing%20Intelligence%20OS.";
-  const waLinkPro = "https://wa.me/5511967585119?text=Olá!%20Tenho%20interesse%20no%20plano%20Professional%20(R$%20297/mês)%20do%20Marketing%20Intelligence%20OS.";
-  const waLinkEnterprise = "https://wa.me/5511967585119?text=Olá!%20Tenho%20interesse%20no%20plano%20Enterprise%20(Sob%20Consulta)%20do%20Marketing%20Intelligence%20OS.";
-  const waLinkGeral = "https://wa.me/5511967585119?text=Olá!%20Gostaria%20de%20solicitar%20acesso%20ao%20Marketing%20Intelligence%20OS.";
+  const waLinkStarter = "https://wa.me/5511967585119?text=Olá!%20Gostaria%20de%20ativar%20o%20plano%20Starter%20(Free)%20do%20Marketing%20Intelligence.OS.";
+  const waLinkPro = "https://wa.me/5511967585119?text=Olá!%20Tenho%20interesse%20no%20plano%20Professional%20(R$%20297/mês)%20do%20Marketing%20Intelligence.OS.";
+  const waLinkEnterprise = "https://wa.me/5511967585119?text=Olá!%20Tenho%20interesse%20no%20plano%20Enterprise%20(Sob%20Consulta)%20do%20Marketing%20Intelligence.OS.";
+  const waLinkGeral = "https://wa.me/5511967585119?text=Olá!%20Gostaria%20de%20solicitar%20acesso%20ao%20Marketing%20Intelligence.OS.";
 
   return (
     <div className="min-h-screen bg-[#0a0f1c] text-slate-200 selection:bg-blue-500/30 font-sans overflow-hidden">
@@ -33,10 +61,19 @@ export default function LandingPage() {
         
         {/* NAV */}
         <nav className="flex items-center justify-between px-6 py-6 max-w-7xl mx-auto border-b border-white/5">
-          <div className="flex items-center gap-2">
-            <Brain className="w-8 h-8 text-blue-500" />
-            <span className="font-bold text-xl tracking-tight text-white">Marketing OS</span>
+          {/* LOGO INTEGRADA NA NAVBAR */}
+          <div className="flex items-center gap-3 cursor-default group">
+            <PremiumLogo />
+            <div className="flex flex-col">
+              <span className="font-extrabold text-lg md:text-xl tracking-tight text-white leading-none">
+                Marketing Intelligence<span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-indigo-500">.OS</span>
+              </span>
+              <span className="text-[9px] font-mono tracking-[0.2em] text-slate-500 uppercase mt-1 group-hover:text-cyan-400 transition-colors">
+                System Active
+              </span>
+            </div>
           </div>
+
           <div className="hidden md:flex gap-8 text-sm font-medium text-slate-400">
             <Link href="#solucao" className="hover:text-white transition">Solução</Link>
             <Link href="#beneficios" className="hover:text-white transition">Benefícios</Link>
@@ -61,7 +98,7 @@ export default function LandingPage() {
             </span> de crescimento.
           </h1>
           <p className="text-lg md:text-xl text-slate-400 max-w-3xl mx-auto mb-10 leading-relaxed">
-            O Marketing Intelligence OS une Inteligência Artificial, dados, automação e estratégia para ajudar empresas a tomar decisões melhores, criar campanhas mais eficientes e acelerar resultados.
+            O Marketing Intelligence.OS une Inteligência Artificial, dados, automação e estratégia para ajudar empresas a tomar decisões melhores, criar campanhas mais eficientes e acelerar resultados.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link href={waLinkGeral} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white rounded-full font-semibold text-lg transition shadow-[0_0_30px_-5px_rgba(37,99,235,0.5)] flex items-center justify-center gap-2">
@@ -82,7 +119,7 @@ export default function LandingPage() {
                   <span className="w-3 h-3 rounded-full bg-red-500/80 inline-block"></span>
                   <span className="w-3 h-3 rounded-full bg-yellow-500/80 inline-block"></span>
                   <span className="w-3 h-3 rounded-full bg-green-500/80 inline-block"></span>
-                  <span className="text-xs font-mono text-slate-400 ml-2">marketing-intelligence-os.app/dashboard</span>
+                  <span className="text-xs font-mono text-slate-400 ml-2">app.marketingintelligence.os/dashboard</span>
                 </div>
                 <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-mono">
                   <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
@@ -189,7 +226,7 @@ export default function LandingPage() {
               Conheça o sistema operacional inteligente do seu marketing.
             </h2>
             <p className="text-xl text-slate-400">
-              O Marketing Intelligence OS transforma informações complexas em decisões estratégicas simples.
+              O Marketing Intelligence.OS transforma informações complexas em decisões estratégicas simples.
             </p>
           </div>
 
@@ -348,7 +385,7 @@ export default function LandingPage() {
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
-                quote: "O Marketing Intelligence OS mudou completamente nossa tomada de decisão. Reduzimos o tempo de relatórios em 80% e aumentamos o ROI das campanhas.",
+                quote: "O Marketing Intelligence.OS mudou completamente nossa tomada de decisão. Reduzimos o tempo de relatórios em 80% e aumentamos o ROI das campanhas.",
                 author: "Marcos Vinícius",
                 role: "CMO na TechGrowth B2B"
               },
@@ -403,7 +440,7 @@ export default function LandingPage() {
           <div className="rounded-2xl border border-white/10 overflow-hidden bg-white/[0.02] backdrop-blur-sm">
             <div className="grid grid-cols-2 border-b border-white/10 bg-white/[0.05]">
               <div className="p-6 text-lg font-semibold text-slate-300">Marketing Tradicional</div>
-              <div className="p-6 text-lg font-bold text-blue-400 border-l border-white/10">Marketing Intelligence OS</div>
+              <div className="p-6 text-lg font-bold text-blue-400 border-l border-white/10">Marketing Intelligence.OS</div>
             </div>
             {[
               ["Decisões por opinião", "Decisões por dados"],
@@ -541,7 +578,7 @@ export default function LandingPage() {
           <div className="space-y-4">
             {[
               {
-                q: "O Marketing Intelligence OS substitui minha equipe?",
+                q: "O Marketing Intelligence.OS substitui minha equipe?",
                 a: "Não. Ele aumenta a capacidade da sua equipe, trazendo inteligência, velocidade e automação para que eles foquem no que importa."
               },
               {
@@ -591,7 +628,7 @@ export default function LandingPage() {
               Comece agora a transformar dados em decisões e decisões em crescimento acelerado.
             </p>
             <Link href={waLinkGeral} target="_blank" rel="noopener noreferrer" className="inline-block px-10 py-5 bg-blue-600 hover:bg-blue-500 text-white rounded-full font-bold text-lg transition shadow-[0_0_40px_-10px_rgba(37,99,235,0.6)]">
-              Entrar para o Marketing Intelligence OS
+              Entrar para o Marketing Intelligence.OS
             </Link>
           </div>
         </section>
@@ -600,9 +637,12 @@ export default function LandingPage() {
         <footer className="py-16 px-6 max-w-7xl mx-auto border-t border-white/5 text-slate-500 text-sm">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
             <div>
-              <div className="flex items-center gap-2 mb-4">
-                <Brain className="w-6 h-6 text-blue-500" />
-                <span className="font-bold text-lg text-white">Marketing OS</span>
+              {/* LOGO INTEGRADA NO RODAPÉ */}
+              <div className="flex items-center gap-3 mb-4">
+                <PremiumLogo />
+                <span className="font-extrabold text-lg text-white">
+                  Marketing Intelligence<span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-indigo-500">.OS</span>
+                </span>
               </div>
               <p className="text-xs text-slate-400 leading-relaxed">
                 O sistema operacional inteligente definitivo para comandar todo o ecossistema de marketing da sua empresa através de dados e IA.
@@ -634,7 +674,7 @@ export default function LandingPage() {
             </div>
           </div>
           <div className="pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
-            <p>© 2026 Marketing Intelligence OS. Todos os direitos reservados.</p>
+            <p>© 2026 Marketing Intelligence.OS. Todos os direitos reservados.</p>
             <p className="text-slate-400 font-mono">Arquitetura SaaS Enterprise V1.0</p>
           </div>
         </footer>
