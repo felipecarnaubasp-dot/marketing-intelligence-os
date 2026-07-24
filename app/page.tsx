@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { 
   Brain, BarChart3, Bot, Zap, Shield, CheckCircle2, 
   ArrowRight, Search, Target, Users, Briefcase, 
-  Layers, ChevronDown, Star, Check, PlayCircle
+  Layers, ChevronDown, Star, Check, PlayCircle, MessageSquare
 } from 'lucide-react';
 
 export default function LandingPage() {
