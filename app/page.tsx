@@ -1,6 +1,11 @@
 "use client";
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
+import { 
+  Brain, BarChart3, Bot, Zap, Shield, CheckCircle2, 
+  ArrowRight, Search, Target, Users, Briefcase, 
+  Layers, LineChart, Lock, ChevronDown, Star 
+} from 'lucide-react';
 
 // ==========================================
 // LOGO PREMIUM EXCLUSIVA (SVG Component)
@@ -31,6 +36,12 @@ const PremiumLogo = () => (
 );
 
 export default function LandingPage() {
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
+
+  const toggleFaq = (index: number) => {
+    setOpenFaq(openFaq === index ? null : index);
+  };
+
   const waLinkGeral = "https://wa.me/5511967585119?text=Olá!%20Gostaria%20de%20solicitar%20acesso%20ao%20Marketing%20Intelligence.OS.";
 
   return (
@@ -88,7 +99,7 @@ export default function LandingPage() {
             {/* Autoridade */}
             <div className="mb-10 max-w-3xl mx-auto">
               <p className="text-xs md:text-sm text-emerald-400 font-medium bg-emerald-950/40 border border-emerald-800/30 py-3 px-6 rounded-full backdrop-blur-sm inline-block shadow-[0_0_20px_rgba(16,185,129,0.1)]">
-                (Engenharia de ponta a ponta: Arquiteto de Software Sênior, IA Generativa e Especialistas focados na conversão do seus Produtos.
+                (Engenharia de ponta a ponta: Arquiteto de Software Sênior, IA Generativa e Especialista Multi-Tenant focados na conversão do seu SaaS V1.0)
               </p>
             </div>
 
@@ -323,33 +334,116 @@ export default function LandingPage() {
           </div>
         </section>
 
-        {/* SEÇÃO 7 — ANTES VS DEPOIS */}
-        <section className="py-24 relative border-t border-white/5">
-          <div className="max-w-6xl mx-auto px-6">
-            <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
-              <div className="bg-white/[0.02] border border-white/5 p-10 rounded-[2.5rem] relative overflow-hidden backdrop-blur-sm">
-                <div className="absolute inset-0 bg-red-500/5 -z-10"></div>
-                <h3 className="text-2xl font-bold text-white mb-8 border-b border-white/10 pb-4">Antes do MarketingOS</h3>
-                <ul className="space-y-5 text-gray-400 font-medium text-lg">
-                  <li className="flex items-center gap-4"><span className="text-red-500 bg-red-500/10 p-1.5 rounded-md">❌</span> Horas cadastrando produtos</li>
-                  <li className="flex items-center gap-4"><span className="text-red-500 bg-red-500/10 p-1.5 rounded-md">❌</span> Equipes grandes para tarefas repetitivas</li>
-                  <li className="flex items-center gap-4"><span className="text-red-500 bg-red-500/10 p-1.5 rounded-md">❌</span> Títulos sem estratégia</li>
-                  <li className="flex items-center gap-4"><span className="text-red-500 bg-red-500/10 p-1.5 rounded-md">❌</span> Descrições copiadas</li>
-                  <li className="flex items-center gap-4"><span className="text-red-500 bg-red-500/10 p-1.5 rounded-md">❌</span> Produtos difíceis de encontrar</li>
-                  <li className="flex items-center gap-4"><span className="text-red-500 bg-red-500/10 p-1.5 rounded-md">❌</span> Catálogo parado</li>
-                </ul>
+        {/* SEÇÃO 7 — ANTES VS DEPOIS NA PRÁTICA (VISUAL COMPARATIVO DE ANÚNCIO) */}
+        <section className="py-24 relative border-t border-white/5 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-transparent via-[#050b14] to-[#050b14]">
+          <div className="max-w-7xl mx-auto px-6">
+            <div className="text-center mb-20">
+              <h2 className="text-3xl md:text-5xl font-black text-white mb-6">Veja a mágica acontecer na prática.</h2>
+              <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+                A inteligência artificial do MarketingOS não apenas "arruma" textos. Ela estrutura todo o produto utilizando as mesmas engenharias de SEO e copywriting dos anúncios que faturam milhões.
+              </p>
+            </div>
+            
+            <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
+              
+              {/* O PESADELO (ANÚNCIO RUIM) */}
+              <div className="bg-[#0a0f18] border border-red-500/20 rounded-[2.5rem] p-8 relative overflow-hidden flex flex-col h-full opacity-90 grayscale-[20%]">
+                <div className="absolute top-0 right-0 w-40 h-40 bg-red-500/5 blur-[60px]"></div>
+                
+                <div className="flex items-center gap-3 mb-8 border-b border-red-500/10 pb-4">
+                  <span className="flex items-center justify-center w-8 h-8 rounded-full bg-red-500/10 text-red-500 text-lg">❌</span>
+                  <div>
+                    <h3 className="text-xl font-bold text-red-400">Como a maioria faz</h3>
+                    <p className="text-xs text-gray-500">Invisível nas buscas e sem conversão</p>
+                  </div>
+                </div>
+
+                {/* Mockup do Anúncio Ruim */}
+                <div className="bg-white/[0.02] border border-white/5 rounded-2xl p-6 flex-1">
+                  {/* Imagem Ruim Simulada */}
+                  <div className="w-full h-48 bg-gray-800/50 rounded-xl flex items-center justify-center border border-dashed border-gray-700 mb-6 relative overflow-hidden">
+                    <div className="absolute inset-0 bg-black/20 backdrop-blur-[2px]"></div>
+                    <span className="text-gray-500 text-sm z-10 flex flex-col items-center gap-2">
+                      <span className="text-2xl">📸</span> 
+                      Imagem amadora e sem fundo tratado
+                    </span>
+                  </div>
+
+                  {/* Título Ruim */}
+                  <h4 className="text-gray-300 font-medium text-lg mb-3">tênis de corrida preto bom</h4>
+                  <div className="text-2xl font-bold text-white mb-4">R$ 149,90</div>
+
+                  {/* Descrição Ruim */}
+                  <div className="space-y-2">
+                    <p className="text-xs font-bold text-gray-500 uppercase">Descrição do Vendedor:</p>
+                    <div className="p-4 bg-black/20 rounded-lg text-sm text-gray-500 font-mono">
+                      tenis muito bom pra correr, leve e confortavel, tamanho normal. cor preto. serve pra academia tbm. comprar numero certo.
+                    </div>
+                  </div>
+
+                  {/* Badges Ruins */}
+                  <div className="mt-6 flex gap-2">
+                    <span className="px-3 py-1 bg-red-500/10 text-red-400 text-xs rounded-md border border-red-500/20">SEO: 12%</span>
+                    <span className="px-3 py-1 bg-gray-800 text-gray-400 text-xs rounded-md border border-gray-700">0 Visitas Hoje</span>
+                  </div>
+                </div>
               </div>
-              <div className="bg-gradient-to-br from-[#00FF66]/10 to-transparent border border-[#00FF66]/30 p-10 rounded-[2.5rem] relative overflow-hidden shadow-[0_0_50px_rgba(0,255,102,0.1)] backdrop-blur-sm transform md:-translate-y-4">
-                <h3 className="text-2xl font-bold text-[#00FF66] mb-8 border-b border-[#00FF66]/20 pb-4 drop-shadow-[0_0_8px_rgba(0,255,102,0.4)]">Depois do MarketingOS</h3>
-                <ul className="space-y-5 text-white font-bold text-lg">
-                  <li className="flex items-center gap-4"><span className="text-[#00FF66] bg-[#00FF66]/20 p-1.5 rounded-md">✅</span> Catálogo organizado</li>
-                  <li className="flex items-center gap-4"><span className="text-[#00FF66] bg-[#00FF66]/20 p-1.5 rounded-md">✅</span> Produtos otimizados</li>
-                  <li className="flex items-center gap-4"><span className="text-[#00FF66] bg-[#00FF66]/20 p-1.5 rounded-md">✅</span> Anúncios profissionais</li>
-                  <li className="flex items-center gap-4"><span className="text-[#00FF66] bg-[#00FF66]/20 p-1.5 rounded-md">✅</span> Mais velocidade operacional</li>
-                  <li className="flex items-center gap-4"><span className="text-[#00FF66] bg-[#00FF66]/20 p-1.5 rounded-md">✅</span> Melhor posicionamento</li>
-                  <li className="flex items-center gap-4"><span className="text-[#00FF66] bg-[#00FF66]/20 p-1.5 rounded-md">✅</span> Pronto para escalar</li>
-                </ul>
+
+              {/* A MÁQUINA DE VENDAS (ANÚNCIO MARKETINGOS) */}
+              <div className="bg-gradient-to-br from-[#0a1324] to-[#0d1a2e] border-2 border-[#00FF66]/50 rounded-[2.5rem] p-8 relative overflow-hidden flex flex-col h-full shadow-[0_0_50px_rgba(0,255,102,0.1)] transform lg:-translate-y-4">
+                <div className="absolute top-0 right-0 w-64 h-64 bg-[#00FF66]/10 blur-[80px]"></div>
+                
+                <div className="flex items-center gap-3 mb-8 border-b border-[#00FF66]/20 pb-4">
+                  <span className="flex items-center justify-center w-8 h-8 rounded-full bg-[#00FF66] text-black text-lg shadow-[0_0_15px_rgba(0,255,102,0.5)]">✅</span>
+                  <div>
+                    <h3 className="text-xl font-bold text-[#00FF66]">Padrão MarketingOS</h3>
+                    <p className="text-xs text-gray-400">Ranqueamento orgânico e gatilhos de venda</p>
+                  </div>
+                </div>
+
+                {/* Mockup do Anúncio Perfeito */}
+                <div className="bg-black/20 border border-[#00FF66]/20 rounded-2xl p-6 flex-1 shadow-inner relative z-10">
+                  
+                  {/* Imagem Perfeita Simulada */}
+                  <div className="w-full h-48 bg-gradient-to-tr from-gray-800 to-gray-700 rounded-xl flex items-center justify-center border border-[#00FF66]/30 mb-6 relative overflow-hidden group">
+                    <div className="absolute top-3 left-3 bg-[#00FF66] text-black text-[10px] font-bold px-2 py-1 rounded shadow-md">IA Image Enhance ✨</div>
+                    <span className="text-white font-medium text-sm flex flex-col items-center gap-2">
+                      <span className="text-3xl drop-shadow-[0_0_10px_rgba(0,255,102,0.8)]">👟</span> 
+                      Fundo branco, alta resolução e sombras
+                    </span>
+                  </div>
+
+                  {/* Título Otimizado */}
+                  <h4 className="text-white font-bold text-lg mb-1 leading-snug">
+                    Tênis Esportivo Masculino Preto Ultra-Light - Amortecimento Avançado para Corrida e Academia
+                  </h4>
+                  <div className="flex gap-1 text-[#00FF66] text-xs mb-3">★★★★★ <span className="text-gray-400 ml-1">(+1.200 avaliações)</span></div>
+                  <div className="text-3xl font-black text-white mb-4 flex items-end gap-2">
+                    R$ 149,90 <span className="text-sm font-medium text-[#00FF66] mb-1">🔥 Mais Vendido</span>
+                  </div>
+
+                  {/* Descrição Otimizada */}
+                  <div className="space-y-2">
+                    <p className="text-xs font-bold text-[#00FF66] uppercase tracking-wider">Copy Gerada pela IA:</p>
+                    <div className="p-4 bg-[#00FF66]/5 rounded-lg border border-[#00FF66]/10 text-sm text-gray-300 leading-relaxed">
+                      <p className="mb-2">🏃‍♂️ <strong>Voe nas pistas e domine seus treinos!</strong></p>
+                      <p className="mb-2 text-xs text-gray-400">Desenvolvido com tecnologia de microespuma, o Tênis Ultra-Light garante...</p>
+                      <ul className="text-xs space-y-1 text-gray-300">
+                        <li><span className="text-[#00FF66]">✓</span> <strong>Respirável:</strong> Tecido mesh anti-suor.</li>
+                        <li><span className="text-[#00FF66]">✓</span> <strong>Seguro:</strong> Solado com grip antiderrapante.</li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  {/* Badges de Sucesso */}
+                  <div className="mt-6 flex flex-wrap gap-2">
+                    <span className="px-3 py-1 bg-[#00FF66]/20 text-[#00FF66] text-xs font-bold rounded-md border border-[#00FF66]/30">SEO Score: 98%</span>
+                    <span className="px-3 py-1 bg-blue-500/20 text-blue-400 text-xs font-bold rounded-md border border-blue-500/30">Título Indexado</span>
+                    <span className="px-3 py-1 bg-purple-500/20 text-purple-400 text-xs font-bold rounded-md border border-purple-500/30">NCM Preenchido</span>
+                  </div>
+                </div>
               </div>
+
             </div>
           </div>
         </section>
