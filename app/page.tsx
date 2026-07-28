@@ -1,685 +1,431 @@
 "use client";
-import React, { useState } from 'react';
+import React from 'react';
 import Link from 'next/link';
-import { 
-  Brain, BarChart3, Bot, Zap, Shield, CheckCircle2, 
-  ArrowRight, Search, Target, Users, Briefcase, 
-  Layers, LineChart, Lock, ChevronDown, Star 
-} from 'lucide-react';
-
-// ==========================================
-// LOGO PREMIUM EXCLUSIVA (SVG Component)
-// ==========================================
-const PremiumLogo = () => (
-  <svg width="42" height="42" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" className="drop-shadow-[0_0_15px_rgba(56,189,248,0.3)] hover:scale-105 transition-transform duration-300">
-    {/* Fundo Glassmorphism */}
-    <rect width="32" height="32" rx="10" fill="#030712" stroke="rgba(56, 189, 248, 0.4)" strokeWidth="1"/>
-    <rect x="2" y="2" width="28" height="28" rx="8" fill="url(#glow-grad)" opacity="0.2"/>
-    
-    {/* Monograma 'M' formando um fluxo de dados */}
-    <path d="M9 21.5V11L16 17L23 11V18.5" stroke="url(#line-grad)" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
-    
-    {/* Ponto / Nó de Inteligência (.OS) */}
-    <circle cx="23" cy="21.5" r="2.5" fill="#38BDF8" className="animate-pulse"/>
-    
-    <defs>
-      <linearGradient id="line-grad" x1="9" y1="11" x2="23" y2="21.5" gradientUnits="userSpaceOnUse">
-        <stop stopColor="#E2E8F0" />
-        <stop offset="1" stopColor="#6366F1" />
-      </linearGradient>
-      <linearGradient id="glow-grad" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
-        <stop stopColor="#38BDF8" />
-        <stop offset="1" stopColor="#6366F1" />
-      </linearGradient>
-    </defs>
-  </svg>
-);
 
 export default function LandingPage() {
-  const [openFaq, setOpenFaq] = useState<number | null>(null);
-
-  const toggleFaq = (index: number) => {
-    setOpenFaq(openFaq === index ? null : index);
-  };
-
-  // Links do WhatsApp com mensagens customizadas para cada plano
-  const waLinkStarter = "https://wa.me/5511967585119?text=Olá!%20Gostaria%20de%20ativar%20o%20plano%20Starter%20(Free)%20do%20Marketing%20Intelligence.OS.";
-  const waLinkPro = "https://wa.me/5511967585119?text=Olá!%20Tenho%20interesse%20no%20plano%20Professional%20(R$%20297/mês)%20do%20Marketing%20Intelligence.OS.";
-  const waLinkEnterprise = "https://wa.me/5511967585119?text=Olá!%20Tenho%20interesse%20no%20plano%20Enterprise%20(Sob%20Consulta)%20do%20Marketing%20Intelligence.OS.";
-  const waLinkGeral = "https://wa.me/5511967585119?text=Olá!%20Gostaria%20de%20solicitar%20acesso%20ao%20Marketing%20Intelligence.OS.";
-
   return (
-    <div className="min-h-screen bg-[#0a0f1c] text-slate-200 selection:bg-blue-500/30 font-sans overflow-hidden">
+    <div className="min-h-screen bg-[#050b14] text-gray-100 font-sans selection:bg-[#00FF66] selection:text-black relative overflow-x-hidden">
       
-      {/* BACKGROUND GLOW EFFECTS */}
-      <div className="fixed inset-0 z-0 pointer-events-none">
-        <div className="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] rounded-full bg-blue-600/10 blur-[120px]" />
-        <div className="absolute bottom-[-20%] right-[-10%] w-[50%] h-[50%] rounded-full bg-purple-600/10 blur-[120px]" />
-      </div>
+      {/* Efeito de Luz de Fundo Global */}
+      <div className="fixed top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-[#00FF66]/10 blur-[120px] rounded-full pointer-events-none -z-10"></div>
 
-      <div className="relative z-10">
-        
-        {/* NAV */}
-        <nav className="flex items-center justify-between px-6 py-6 max-w-7xl mx-auto border-b border-white/5">
-          {/* LOGO INTEGRADA NA NAVBAR */}
-          <div className="flex items-center gap-3 cursor-default group">
-            <PremiumLogo />
-            <div className="flex flex-col">
-              <span className="font-extrabold text-lg md:text-xl tracking-tight text-white leading-none">
-                Marketing Intelligence<span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-indigo-500">.OS</span>
-              </span>
-              <span className="text-[9px] font-mono tracking-[0.2em] text-slate-500 uppercase mt-1 group-hover:text-cyan-400 transition-colors">
-                System Active
-              </span>
+      {/* ========================================== */}
+      {/* HEADER / NAVEGAÇÃO                         */}
+      {/* ========================================== */}
+      <header className="sticky top-0 z-50 backdrop-blur-md bg-[#050b14]/90 border-b border-gray-800">
+        <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-[#00FF66] to-emerald-600 flex items-center justify-center shadow-lg shadow-[#00FF66]/20">
+              <span className="text-black font-black text-xl tracking-tighter">M</span>
             </div>
+            <span className="text-xl md:text-2xl font-extrabold tracking-tight text-white">
+              MARKETING<span className="text-[#00FF66]">OS</span>
+            </span>
           </div>
-
-          <div className="hidden md:flex gap-8 text-sm font-medium text-slate-400">
-            <Link href="#solucao" className="hover:text-white transition">Solução</Link>
-            <Link href="#beneficios" className="hover:text-white transition">Benefícios</Link>
-            <Link href="#depoimentos" className="hover:text-white transition">Resultados</Link>
-            <Link href="#planos" className="hover:text-white transition">Planos</Link>
-          </div>
-          <Link href={waLinkGeral} target="_blank" rel="noopener noreferrer" className="px-5 py-2 text-sm font-medium text-white bg-white/10 hover:bg-white/20 border border-white/10 rounded-full backdrop-blur-md transition">
-            Solicitar Acesso
+          <nav className="hidden lg:flex items-center gap-8 text-sm font-medium text-gray-300">
+            <Link href="#dor" className="hover:text-[#00FF66] transition">O Problema</Link>
+            <Link href="#solucao" className="hover:text-[#00FF66] transition">A Solução</Link>
+            <Link href="#funcionalidades" className="hover:text-[#00FF66] transition">Recursos</Link>
+            <Link href="#planos" className="hover:text-[#00FF66] transition">Planos</Link>
+          </nav>
+          <Link href="#planos" className="bg-[#00FF66] text-black font-bold px-5 py-2.5 rounded-xl hover:bg-emerald-400 transition shadow-lg shadow-[#00FF66]/10 text-sm">
+            Otimizar Catálogo
           </Link>
-        </nav>
+        </div>
+      </header>
 
-        {/* 1. HERO SECTION */}
-        <section className="pt-32 pb-20 px-6 max-w-7xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-semibold uppercase tracking-wider mb-8">
-            <span className="flex h-2 w-2 rounded-full bg-blue-500 animate-pulse"></span>
-            A Nova Era do Marketing B2B
-          </div>
-          <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-white mb-8 leading-[1.1]">
-            Transforme seu marketing em uma <br className="hidden md:block" />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">
-              máquina inteligente
-            </span> de crescimento.
+      {/* HERO SECTION (VISUAL PREMIUM) */}
+      <section className="relative pt-32 pb-24 overflow-hidden">
+        <div className="max-w-5xl mx-auto px-6 text-center relative z-10">
+          <h1 className="text-5xl md:text-7xl font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-400 mb-6 leading-tight drop-shadow-sm">
+            Seu catálogo está cheio de <br />
+            <span className="text-[#00FF66] bg-none drop-shadow-[0_0_15px_rgba(0,255,102,0.3)]">oportunidades perdidas</span>.
           </h1>
-          <p className="text-lg md:text-xl text-slate-400 max-w-3xl mx-auto mb-10 leading-relaxed">
-            O Marketing Intelligence.OS une Inteligência Artificial, dados, automação e estratégia para ajudar empresas a tomar decisões melhores, criar campanhas mais eficientes e acelerar resultados.
+          <p className="text-lg md:text-xl text-gray-400 mb-8 max-w-3xl mx-auto font-light leading-relaxed">
+            Milhares de produtos ficam parados porque possuem títulos fracos, descrições incompletas, imagens ruins e informações que não ajudam o cliente a comprar.<br /><br />
+            O <strong className="text-white font-bold">MarketingOS</strong> transforma seu catálogo desorganizado em anúncios profissionais, otimizados e prontos para vender em múltiplos marketplaces usando Inteligência Artificial.
           </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link href={waLinkGeral} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white rounded-full font-semibold text-lg transition shadow-[0_0_30px_-5px_rgba(37,99,235,0.5)] flex items-center justify-center gap-2">
-              Começar minha jornada inteligente <ArrowRight className="w-5 h-5" />
+          
+          {/* Autoridade */}
+          <div className="mb-10 max-w-3xl mx-auto">
+            <p className="text-xs md:text-sm text-emerald-400 font-medium bg-emerald-950/40 border border-emerald-800/30 py-3 px-6 rounded-full backdrop-blur-sm inline-block shadow-[0_0_20px_rgba(16,185,129,0.1)]">
+              (Engenharia de ponta a ponta: Arquiteto de Software Sênior, IA Generativa e Especialista Multi-Tenant focados na conversão do seu SaaS V1.0)
+            </p>
+          </div>
+
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-5 mb-14">
+            <Link href="#planos" className="w-full sm:w-auto bg-[#00FF66] text-black font-extrabold px-10 py-4 rounded-2xl text-lg hover:bg-emerald-400 hover:scale-105 transition-all duration-300 shadow-[0_0_30px_rgba(0,255,102,0.3)]">
+              Transformar meu catálogo agora
             </Link>
-            <Link href="#solucao" className="w-full sm:w-auto px-8 py-4 bg-white/5 hover:bg-white/10 border border-white/10 text-white rounded-full font-semibold text-lg backdrop-blur-sm transition flex items-center justify-center gap-2">
+            <Link href="#como-funciona" className="w-full sm:w-auto bg-white/5 border border-white/10 text-white font-bold px-10 py-4 rounded-2xl text-lg hover:bg-white/10 hover:border-white/20 backdrop-blur-md transition-all duration-300">
               Ver como funciona
             </Link>
           </div>
 
-          {/* DASHBOARD MOCKUP */}
-          <div className="mt-20 relative mx-auto max-w-5xl">
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0a0f1c] via-transparent to-transparent z-10 pointer-events-none" />
-            <div className="rounded-2xl border border-blue-500/30 bg-slate-950/80 backdrop-blur-2xl p-4 shadow-[0_0_50px_-10px_rgba(37,99,235,0.3)] overflow-hidden ring-1 ring-white/10">
-              
-              <div className="flex items-center justify-between pb-4 mb-4 border-b border-white/10">
-                <div className="flex items-center gap-2">
-                  <span className="w-3 h-3 rounded-full bg-red-500/80 inline-block"></span>
-                  <span className="w-3 h-3 rounded-full bg-yellow-500/80 inline-block"></span>
-                  <span className="w-3 h-3 rounded-full bg-green-500/80 inline-block"></span>
-                  <span className="text-xs font-mono text-slate-400 ml-2">app.marketingintelligence.os/dashboard</span>
-                </div>
-                <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-mono">
-                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
-                  IA Agents: Ativos (24/7)
-                </div>
-              </div>
+          {/* Prova de Valor */}
+          <div className="inline-flex flex-col items-center justify-center space-y-3 bg-white/5 border border-white/5 px-8 py-4 rounded-3xl backdrop-blur-sm">
+            <div className="flex gap-1 text-[#00FF66] text-xl drop-shadow-md">
+              <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+            </div>
+            <p className="text-sm text-gray-300 font-medium italic">&quot;De um catálogo desorganizado para produtos preparados para competir nos maiores marketplaces.&quot;</p>
+          </div>
+        </div>
+      </section>
 
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-left">
-                <div className="p-4 rounded-xl bg-white/[0.03] border border-white/5 relative overflow-hidden">
-                  <div className="text-xs text-slate-400 mb-1">ROI das Campanhas</div>
-                  <div className="text-2xl font-bold text-white mb-2">+348.5%</div>
-                  <div className="w-full bg-white/10 h-1.5 rounded-full overflow-hidden">
-                    <div className="bg-gradient-to-r from-blue-500 to-purple-500 h-full w-[85%]"></div>
-                  </div>
-                  <span className="text-[10px] text-blue-400 mt-2 inline-block">Otimizado por IA há 2 min</span>
-                </div>
-
-                <div className="p-4 rounded-xl bg-white/[0.03] border border-white/5 relative overflow-hidden">
-                  <div className="text-xs text-slate-400 mb-1">Leads Qualificados</div>
-                  <div className="text-2xl font-bold text-white mb-2">14,820</div>
-                  <div className="flex items-center gap-1 text-xs text-emerald-400 font-medium">
-                    <span>↑ +28.4% vs mês anterior</span>
-                  </div>
-                  <span className="text-[10px] text-slate-400 mt-2 inline-block">Segmentação preditiva ativa</span>
-                </div>
-
-                <div className="p-4 rounded-xl bg-white/[0.03] border border-white/5 relative overflow-hidden flex flex-col justify-between">
-                  <div>
-                    <div className="text-xs text-slate-400 mb-1">Insights Automáticos</div>
-                    <div className="text-sm font-semibold text-white">4 Estratégias geradas</div>
-                  </div>
-                  <div className="mt-2 text-[11px] bg-blue-500/20 text-blue-300 px-2.5 py-1 rounded border border-blue-500/35 inline-block w-fit">
-                    Revisar sugestões →
-                  </div>
-                </div>
-              </div>
-
-              <div className="mt-4 p-4 rounded-xl bg-white/[0.02] border border-white/5 flex items-center justify-between">
-                <div className="flex items-center gap-3">
-                  <div className="p-2.5 rounded-lg bg-blue-500/10 text-blue-400">
-                    <BarChart3 className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <div className="text-sm font-medium text-white">Agente Estrategista em Execução</div>
-                    <div className="text-xs text-slate-400">Analisando gargalos de conversão e ajustando lances de anúncios...</div>
-                  </div>
-                </div>
-                <div className="hidden sm:block text-xs font-mono text-purple-400 bg-purple-500/10 px-3 py-1.5 rounded-lg border border-purple-500/20">
-                  Status: 100% Autônomo
-                </div>
-              </div>
-
+      {/* SEÇÃO 2 — A DOR (GLASSMORPHISM CARDS) */}
+      <section id="dor" className="py-24 relative border-t border-white/5 bg-gradient-to-b from-transparent to-[#0a1324]/30">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center max-w-3xl mx-auto mb-20">
+            <h2 className="text-3xl md:text-5xl font-black text-white mb-6 tracking-tight">O problema não é ter muitos produtos.<br /><span className="text-gray-400">É não conseguir vender todos eles.</span></h2>
+            <p className="text-gray-400 text-lg">Hoje vendedores possuem centenas ou milhares de SKUs, mas enfrentam gargalos que travam as vendas.</p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="group bg-white/[0.02] border border-white/5 p-8 rounded-3xl hover:border-[#00FF66]/30 hover:bg-white/[0.04] transition-all duration-500">
+              <div className="w-14 h-14 bg-white/5 rounded-2xl flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform">👻</div>
+              <h3 className="text-xl font-bold text-white mb-3">Produtos invisíveis</h3>
+              <p className="text-gray-400 text-sm leading-relaxed">Títulos genéricos fazem seus produtos desaparecerem nas buscas.</p>
+            </div>
+            <div className="group bg-white/[0.02] border border-white/5 p-8 rounded-3xl hover:border-[#00FF66]/30 hover:bg-white/[0.04] transition-all duration-500">
+              <div className="w-14 h-14 bg-white/5 rounded-2xl flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform">🤷</div>
+              <h3 className="text-xl font-bold text-white mb-3">Descrições que não convencem</h3>
+              <p className="text-gray-400 text-sm leading-relaxed">Informações incompletas deixam clientes inseguros e reduzem conversões.</p>
+            </div>
+            <div className="group bg-white/[0.02] border border-white/5 p-8 rounded-3xl hover:border-[#00FF66]/30 hover:bg-white/[0.04] transition-all duration-500">
+              <div className="w-14 h-14 bg-white/5 rounded-2xl flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform">🖼️</div>
+              <h3 className="text-xl font-bold text-white mb-3">Imagens que não valorizam</h3>
+              <p className="text-gray-400 text-sm leading-relaxed">Fotos amadoras diminuem a percepção de valor do produto.</p>
+            </div>
+            <div className="group bg-white/[0.02] border border-white/5 p-8 rounded-3xl hover:border-[#00FF66]/30 hover:bg-white/[0.04] transition-all duration-500">
+              <div className="w-14 h-14 bg-white/5 rounded-2xl flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform">📁</div>
+              <h3 className="text-xl font-bold text-white mb-3">Dados desorganizados</h3>
+              <p className="text-gray-400 text-sm leading-relaxed">Planilhas espalhadas dificultam escalar a operação.</p>
+            </div>
+            <div className="group bg-white/[0.02] border border-white/5 p-8 rounded-3xl hover:border-[#00FF66]/30 hover:bg-white/[0.04] transition-all duration-500 lg:col-span-2 relative overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:animate-[shimmer_2s_infinite]"></div>
+              <div className="w-14 h-14 bg-white/5 rounded-2xl flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform">⏳</div>
+              <h3 className="text-xl font-bold text-white mb-3">Publicação manual interminável</h3>
+              <p className="text-gray-400 text-sm leading-relaxed">Cada marketplace exige tempo, ajustes e atenção redobrada, consumindo a energia da sua equipe.</p>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* 2. A DOR DO MERCADO */}
-        <section className="py-24 px-6 max-w-7xl mx-auto border-t border-white/5">
+      {/* SEÇÃO 3 — O CUSTO INVISÍVEL (CONTRASTE ALTO) */}
+      <section className="py-24 relative border-t border-white/5">
+        <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
-              O problema não é falta de marketing.<br />
-              <span className="text-slate-500">É falta de inteligência.</span>
-            </h2>
+            <h2 className="text-3xl md:text-5xl font-black text-white">Cada produto mal cadastrado representa <span className="text-red-500 drop-shadow-[0_0_10px_rgba(239,68,68,0.5)]">dinheiro parado</span>.</h2>
           </div>
           
-          <div className="grid md:grid-cols-2 gap-6">
-            {[
-              {
-                title: "Você investe em marketing, mas não sabe exatamente o que funciona.",
-                points: ["Campanhas sem análise profunda", "Dinheiro desperdiçado", "Decisões baseadas em opinião"]
-              },
-              {
-                title: "Sua equipe perde horas criando estratégias manualmente.",
-                points: ["Pesquisas demoradas", "Relatórios manuais", "Criação de conteúdo lenta"]
-              },
-              {
-                title: "Os dados estão espalhados em vários lugares.",
-                points: ["Planilhas sem fim", "Ferramentas desconectadas", "Informações perdidas"]
-              },
-              {
-                title: "Sua empresa cresce, mas o marketing não acompanha.",
-                points: ["Falta de processos", "Falta de previsibilidade", "Dificuldade de escala"]
-              }
-            ].map((pain, i) => (
-              <div key={i} className="p-8 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-red-500/30 transition-colors group">
-                <h3 className="text-xl font-semibold text-white mb-6">{pain.title}</h3>
-                <ul className="space-y-3">
-                  {pain.points.map((point, j) => (
-                    <li key={j} className="flex items-start gap-3 text-slate-400">
-                      <span className="mt-1 block w-1.5 h-1.5 rounded-full bg-red-500/50 group-hover:bg-red-500 transition-colors" />
-                      {point}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* 3. A SOLUÇÃO */}
-        <section id="solucao" className="py-24 px-6 max-w-7xl mx-auto border-t border-white/5">
-          <div className="text-center mb-16 max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
-              Conheça o sistema operacional inteligente do seu marketing.
-            </h2>
-            <p className="text-xl text-slate-400">
-              O Marketing Intelligence.OS transforma informações complexas em decisões estratégicas simples.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              {
-                icon: Target,
-                title: "AI Marketing Strategist",
-                desc: "Seu estrategista de marketing com inteligência artificial.",
-                items: ["Cria planos estratégicos", "Analisa oportunidades", "Identifica gargalos", "Sugere ações"]
-              },
-              {
-                icon: BarChart3,
-                title: "Analytics Intelligence",
-                desc: "Transforme dados brutos em decisões precisas.",
-                items: ["Dashboards inteligentes", "Acompanhamento de KPIs", "Análise de campanhas", "Identificação de padrões"]
-              },
-              {
-                icon: Search,
-                title: "AI Content Creator",
-                desc: "Crie conteúdos estratégicos e direcionados com IA.",
-                items: ["Posts e Artigos", "Anúncios (Ads)", "Roteiros de vídeo", "Calendários editoriais"]
-              },
-              {
-                icon: Zap,
-                title: "Campaign Intelligence",
-                desc: "Melhore a performance das suas campanhas em tempo real.",
-                items: ["Analisa desempenho", "Identifica oportunidades", "Sugere otimizações"]
-              },
-              {
-                icon: Users,
-                title: "CRM Intelligence",
-                desc: "Centralize e aprofunde o relacionamento com o cliente.",
-                items: ["Gestão de leads", "Histórico de clientes", "Mapeamento de oportunidades", "Acompanhamento comercial"]
-              },
-              {
-                icon: Bot,
-                title: "AI Marketing Agents",
-                desc: "Uma equipe de especialistas trabalhando 24/7 para você.",
-                items: ["Agente Estrategista", "Agente Analista", "Agente Criador", "Agente Pesquisador"]
-              }
-            ].map((module, i) => (
-              <div key={i} className="p-8 rounded-2xl bg-white/[0.03] border border-white/10 hover:border-blue-500/50 transition-all hover:-translate-y-1 relative overflow-hidden group">
-                <div className="absolute top-0 right-0 p-6 opacity-5 group-hover:opacity-10 transition-opacity">
-                  <module.icon className="w-24 h-24" />
-                </div>
-                <module.icon className="w-10 h-10 text-blue-400 mb-6" />
-                <h3 className="text-xl font-bold text-white mb-2">{module.title}</h3>
-                <p className="text-sm text-slate-400 mb-6">{module.desc}</p>
-                <ul className="space-y-2">
-                  {module.items.map((item, j) => (
-                    <li key={j} className="flex items-center gap-2 text-sm text-slate-300">
-                      <CheckCircle2 className="w-4 h-4 text-blue-500" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* 4. COMO FUNCIONA */}
-        <section className="py-24 px-6 max-w-7xl mx-auto border-t border-white/5">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
-              Do caos ao crescimento em poucos passos.
-            </h2>
-          </div>
-          
-          <div className="relative">
-            <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-px bg-gradient-to-b from-blue-500/0 via-blue-500/50 to-blue-500/0" />
+          <div className="flex flex-col md:flex-row gap-8">
+            {/* A perda */}
+            <div className="flex-1 bg-red-950/10 border border-red-900/30 p-10 rounded-[2rem] relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-red-500/10 blur-[50px]"></div>
+              <h3 className="text-2xl font-bold text-red-400 mb-8 flex items-center gap-3">
+                <span className="bg-red-500/20 p-2 rounded-lg">🔻</span> Enquanto você perde horas:
+              </h3>
+              <ul className="space-y-5 text-gray-300 font-medium">
+                <li className="flex items-center gap-4"><span className="text-red-500">❌</span> corrigindo planilhas;</li>
+                <li className="flex items-center gap-4"><span className="text-red-500">❌</span> criando títulos;</li>
+                <li className="flex items-center gap-4"><span className="text-red-500">❌</span> preenchendo informações;</li>
+                <li className="flex items-center gap-4"><span class="text-red-500">❌</span> ajustando anúncios;</li>
+              </ul>
+            </div>
             
-            <div className="space-y-12">
-              {[
-                {
-                  step: "01",
-                  title: "Conecte sua empresa",
-                  desc: "Cadastre as informações vitais, integre suas fontes de dados e defina seu cenário atual."
-                },
-                {
-                  step: "02",
-                  title: "A IA entende seu negócio",
-                  desc: "Nossos algoritmos analisam o mercado, mapeiam seu público, processam dados históricos e alinham seus objetivos."
-                },
-                {
-                  step: "03",
-                  title: "Receba inteligência estratégica",
-                  desc: "A plataforma gera automaticamente insights acionáveis, recomendações de alto impacto e planos de ação detalhados."
-                },
-                {
-                  step: "04",
-                  title: "Execute e acompanhe resultados",
-                  desc: "Tenha controle total da operação. Monitore a execução, meça os KPIs e deixe a IA otimizar em tempo real."
-                }
-              ].map((step, i) => (
-                <div key={i} className={`flex flex-col md:flex-row items-center gap-8 ${i % 2 !== 0 ? 'md:flex-row-reverse' : ''}`}>
-                  <div className={`flex-1 ${i % 2 !== 0 ? 'text-left' : 'md:text-right'}`}>
-                    <span className="text-blue-500 font-mono text-xl font-bold mb-2 block">{step.step}</span>
-                    <h3 className="text-2xl font-bold text-white mb-3">{step.title}</h3>
-                    <p className="text-slate-400 text-lg">{step.desc}</p>
-                  </div>
-                  <div className="w-12 h-12 rounded-full bg-[#0a0f1c] border-2 border-blue-500 flex items-center justify-center z-10 shadow-[0_0_15px_rgba(59,130,246,0.5)]">
-                    <div className="w-3 h-3 bg-blue-500 rounded-full" />
-                  </div>
-                  <div className="flex-1" />
-                </div>
-              ))}
+            {/* A concorrência */}
+            <div className="flex-1 bg-[#00FF66]/5 border border-[#00FF66]/20 p-10 rounded-[2rem] relative overflow-hidden shadow-[0_0_30px_rgba(0,255,102,0.05)]">
+              <div className="absolute bottom-0 right-0 w-32 h-32 bg-[#00FF66]/10 blur-[50px]"></div>
+              <h3 className="text-2xl font-bold text-[#00FF66] mb-8 flex items-center gap-3">
+                <span className="bg-[#00FF66]/10 p-2 rounded-lg">🚀</span> Seus concorrentes estão:
+              </h3>
+              <ul className="space-y-5 text-gray-300 font-medium">
+                <li className="flex items-center gap-4"><span className="text-[#00FF66]">✅</span> aparecendo melhor nas buscas;</li>
+                <li className="flex items-center gap-4"><span className="text-[#00FF66]">✅</span> convertendo mais;</li>
+                <li className="flex items-center gap-4"><span className="text-[#00FF66]">✅</span> escalando seus catálogos.</li>
+              </ul>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* 5. BENEFÍCIOS */}
-        <section id="beneficios" className="py-24 px-6 max-w-7xl mx-auto border-t border-white/5">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
-              Uma nova forma de administrar marketing.
-            </h2>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              { title: "Mais decisões inteligentes", desc: "Troque intuições e opiniões por dados concretos e precisos." },
-              { title: "Menos trabalho manual", desc: "Automatize processos repetitivos e libere tempo para estratégia." },
-              { title: "Mais velocidade", desc: "Crie estratégias complexas e campanhas direcionadas em minutos." },
-              { title: "Mais controle", desc: "Tenha uma visão 360º e em tempo real de toda a operação de marketing." },
-              { title: "Mais escala", desc: "Cresça seu faturamento e impacto sem precisar aumentar a complexidade." }
-            ].map((benefit, i) => (
-              <div key={i} className={`p-8 rounded-2xl bg-gradient-to-br from-white/[0.05] to-transparent border border-white/10 ${i === 4 ? 'lg:col-span-2' : ''}`}>
-                <h3 className="text-xl font-bold text-white mb-3 flex items-center gap-3">
-                  <CheckCircle2 className="text-purple-400 w-5 h-5" />
-                  {benefit.title}
-                </h3>
-                <p className="text-slate-400">{benefit.desc}</p>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* DEPOIMENTOS / PROVA SOCIAL */}
-        <section id="depoimentos" className="py-24 px-6 max-w-7xl mx-auto border-t border-white/5">
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-1 text-yellow-400 mb-3">
-              {[...Array(5)].map((_, i) => (
-                <Star key={i} className="w-5 h-5 fill-current" />
-              ))}
+      {/* SEÇÃO 4 — A SOLUÇÃO */}
+      <section id="solucao" className="py-32 relative border-t border-white/5 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#0a1324]/50 via-[#050b14] to-[#050b14]">
+        <div className="max-w-7xl mx-auto px-6 text-center">
+          <h2 className="text-3xl md:text-5xl font-black text-white mb-6">Conheça seu novo especialista em <span className="text-[#00FF66]">catálogo inteligente</span>.</h2>
+          <p className="text-xl text-gray-400 mb-20 font-light">Uma inteligência artificial criada para transformar grandes catálogos em anúncios profissionais preparados para vender.</p>
+          
+          <div className="flex flex-col lg:flex-row items-center justify-center gap-4 lg:gap-8">
+            <div className="bg-white/[0.03] border border-white/10 p-10 rounded-[2rem] w-full lg:w-1/3 shadow-2xl backdrop-blur-md">
+              <div className="w-16 h-16 bg-blue-500/10 border border-blue-500/20 rounded-2xl mx-auto flex items-center justify-center text-4xl mb-6 shadow-[0_0_20px_rgba(59,130,246,0.2)]">📂</div>
+              <h3 className="text-2xl font-bold text-white mb-3">Você envia:</h3>
+              <p className="text-gray-400 font-medium text-lg">Seu catálogo em Excel</p>
             </div>
-            <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
-              Amado por líderes de marketing e agências
-            </h2>
-            <p className="text-xl text-slate-400 max-w-2xl mx-auto">
-              Veja como empresas de diferentes portes estão escalando os resultados com inteligência automatizada.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                quote: "O Marketing Intelligence.OS mudou completamente nossa tomada de decisão. Reduzimos o tempo de relatórios em 80% e aumentamos o ROI das campanhas.",
-                author: "Marcos Vinícius",
-                role: "CMO na TechGrowth B2B"
-              },
-              {
-                quote: "Gerenciar múltiplas contas de clientes costumava ser um caos de planilhas. Agora temos agentes de IA trabalhando 24/7 identificando padrões.",
-                author: "Camila Sampaio",
-                role: "Diretora de Operações na Vibe Agência"
-              },
-              {
-                quote: "A clareza dos dashboards e as recomendações automáticas de estratégia nos deram uma previsibilidade de crescimento que nunca tivemos antes.",
-                author: "Rafael Mendes",
-                role: "Fundador e CEO da ScaleUp SaaS"
-              }
-            ].map((testimonial, i) => (
-              <div key={i} className="p-8 rounded-3xl bg-white/[0.02] border border-white/5 flex flex-col justify-between hover:border-blue-500/30 transition">
-                <p className="text-slate-300 text-sm leading-relaxed mb-8 italic">"{testimonial.quote}"</p>
-                <div>
-                  <div className="font-bold text-white text-base">{testimonial.author}</div>
-                  <div className="text-xs text-blue-400 mt-0.5">{testimonial.role}</div>
-                </div>
+            
+            <div className="text-white/20 text-4xl rotate-90 lg:rotate-0 my-4 lg:my-0 font-light">➔</div>
+            
+            <div className="bg-gradient-to-br from-[#0a1324] to-[#0d182b] border border-[#00FF66]/30 p-10 rounded-[2rem] w-full lg:w-1/3 shadow-[0_0_40px_rgba(0,255,102,0.1)] relative transform lg:-translate-y-4">
+              <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-[#00FF66] text-black text-sm font-black px-5 py-2 rounded-full uppercase tracking-wider shadow-[0_0_15px_rgba(0,255,102,0.5)]">
+                A IA Analisa
               </div>
-            ))}
-          </div>
-        </section>
+              <ul className="text-left space-y-4 text-gray-300 font-medium mt-6">
+                <li className="flex items-center gap-3"><span className="text-[#00FF66]">🔍</span> Produtos</li>
+                <li className="flex items-center gap-3"><span className="text-[#00FF66]">🔍</span> Categorias</li>
+                <li className="flex items-center gap-3"><span className="text-[#00FF66]">🔍</span> Informações técnicas</li>
+                <li className="flex items-center gap-3"><span className="text-[#00FF66]">🔍</span> Mercado</li>
+                <li className="flex items-center gap-3"><span className="text-[#00FF66]">🔍</span> Palavras-chave</li>
+              </ul>
+            </div>
 
-        {/* 6. PARA QUEM É */}
-        <section className="py-24 px-6 max-w-7xl mx-auto border-t border-white/5">
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              { icon: Briefcase, title: "Empresas", desc: "Que precisam estruturar e profissionalizar o marketing." },
-              { icon: Target, title: "Gestores", desc: "Que precisam de visão estratégica e controle de KPIs." },
-              { icon: Layers, title: "Agências", desc: "Que precisam entregar mais valor e escalar operações." },
-              { icon: Zap, title: "Startups", desc: "Que precisam tracionar rápido com recursos otimizados." }
-            ].map((target, i) => (
-              <div key={i} className="p-8 rounded-2xl bg-white/[0.02] border border-white/5 text-center hover:bg-white/[0.04] transition">
-                <target.icon className="w-12 h-12 text-blue-400 mx-auto mb-6" />
-                <h3 className="text-xl font-bold text-white mb-3">{target.title}</h3>
-                <p className="text-slate-400">{target.desc}</p>
-              </div>
-            ))}
-          </div>
-        </section>
+            <div className="text-white/20 text-4xl rotate-90 lg:rotate-0 my-4 lg:my-0 font-light">➔</div>
 
-        {/* 7. COMPARAÇÃO */}
-        <section className="py-24 px-6 max-w-4xl mx-auto border-t border-white/5">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
-              Marketing tradicional vs <span className="text-blue-400">Marketing inteligente</span>
-            </h2>
+            <div className="bg-white/[0.03] border border-white/10 p-10 rounded-[2rem] w-full lg:w-1/3 shadow-2xl backdrop-blur-md">
+              <div className="w-16 h-16 bg-emerald-500/10 border border-emerald-500/20 rounded-2xl mx-auto flex items-center justify-center text-4xl mb-6 shadow-[0_0_20px_rgba(16,185,129,0.2)]">✅</div>
+              <h3 className="text-2xl font-bold text-white mb-6">Você recebe:</h3>
+              <ul className="text-left space-y-3 text-gray-300 text-sm font-medium">
+                <li className="flex items-center gap-3">🚀 Produtos organizados</li>
+                <li className="flex items-center gap-3">🚀 Anúncios otimizados</li>
+                <li className="flex items-center gap-3">🚀 Conteúdo profissional</li>
+                <li className="flex items-center gap-3">🚀 Dados completos</li>
+                <li className="mt-4 p-3 bg-[#00FF66]/10 rounded-xl border border-[#00FF66]/20">
+                  🚀 <span className="font-bold text-[#00FF66]">Produto Publicado com sucesso</span><br />
+                  <span className="text-xs text-gray-400 mt-1 block">(Direto no Mercado Livre, Shopee, etc.)</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SEÇÃO 5 — COMO FUNCIONA (STEPS PREMIUM) */}
+      <section id="como-funciona" className="py-24 relative border-t border-white/5">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-20">
+            <h2 className="text-3xl md:text-5xl font-black text-white">4 passos para transformar seu catálogo</h2>
           </div>
           
-          <div className="rounded-2xl border border-white/10 overflow-hidden bg-white/[0.02] backdrop-blur-sm">
-            <div className="grid grid-cols-2 border-b border-white/10 bg-white/[0.05]">
-              <div className="p-6 text-lg font-semibold text-slate-300">Marketing Tradicional</div>
-              <div className="p-6 text-lg font-bold text-blue-400 border-l border-white/10">Marketing Intelligence.OS</div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="bg-white/[0.02] p-8 rounded-3xl border border-white/10 relative pt-12 hover:bg-white/[0.04] transition-colors">
+              <span className="absolute -top-6 left-8 w-14 h-14 bg-[#050b14] text-white font-black rounded-2xl flex items-center justify-center text-xl border border-white/20 shadow-xl">01</span>
+              <h3 className="text-xl font-bold text-white mb-3">Envie seu catálogo</h3>
+              <p className="text-gray-400 text-sm leading-relaxed">Importe sua planilha com centenas ou milhares de produtos.</p>
             </div>
-            {[
-              ["Decisões por opinião", "Decisões por dados"],
-              ["Processos manuais", "Automação inteligente"],
-              ["Muitas ferramentas desconectadas", "Plataforma integrada (All-in-one)"],
-              ["Relatórios demorados", "Insights instantâneos e preditivos"],
-              ["Estratégia limitada", "Inteligência contínua 24/7"]
-            ].map((row, i) => (
-              <div key={i} className="grid grid-cols-2 border-b border-white/5 last:border-0 hover:bg-white/[0.02] transition">
-                <div className="p-6 text-slate-400">{row[0]}</div>
-                <div className="p-6 font-medium text-white border-l border-white/10 flex items-center gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-blue-500" /> {row[1]}
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* 8. SEGURANÇA E CONFIANÇA */}
-        <section className="py-20 px-6 border-y border-white/5 bg-black/20">
-          <div className="max-w-4xl mx-auto text-center flex flex-col items-center">
-            <Shield className="w-16 h-16 text-slate-300 mb-6" />
-            <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
-              Construído para empresas que precisam de inteligência, segurança e escala.
-            </h2>
-            <div className="flex flex-wrap justify-center gap-4 mt-8">
-              <span className="px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm font-medium">Arquitetura SaaS Premium</span>
-              <span className="px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm font-medium">Dados 100% Protegidos</span>
-              <span className="px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm font-medium">Ambiente Profissional Seguro</span>
+            <div className="bg-white/[0.02] p-8 rounded-3xl border border-white/10 relative pt-12 hover:bg-white/[0.04] transition-colors">
+              <span className="absolute -top-6 left-8 w-14 h-14 bg-[#050b14] text-white font-black rounded-2xl flex items-center justify-center text-xl border border-white/20 shadow-xl">02</span>
+              <h3 className="text-xl font-bold text-white mb-3">A IA organiza tudo</h3>
+              <p className="text-gray-400 text-sm leading-relaxed">A plataforma identifica informações importantes e corrige inconsistências.</p>
+            </div>
+            <div className="bg-white/[0.02] p-8 rounded-3xl border border-[#00FF66]/40 relative pt-12 bg-[#00FF66]/[0.02] shadow-[0_0_30px_rgba(0,255,102,0.05)]">
+              <span className="absolute -top-6 left-8 w-14 h-14 bg-[#00FF66] text-black font-black rounded-2xl flex items-center justify-center text-xl shadow-[0_0_20px_rgba(0,255,102,0.4)]">03</span>
+              <h3 className="text-xl font-bold text-white mb-3">Seus anúncios são reconstruídos</h3>
+              <p className="text-gray-400 text-sm mb-4">A IA cria:</p>
+              <ul className="text-sm text-gray-300 space-y-2 font-medium">
+                <li className="flex items-center gap-2 text-[#00FF66]"><span className="text-white">✓</span> Títulos estratégicos</li>
+                <li className="flex items-center gap-2 text-[#00FF66]"><span className="text-white">✓</span> Descrições persuasivas</li>
+                <li className="flex items-center gap-2 text-[#00FF66]"><span className="text-white">✓</span> Palavras-chave</li>
+                <li className="flex items-center gap-2 text-[#00FF66]"><span className="text-white">✓</span> Informações obrigatórias</li>
+                <li className="flex items-center gap-2 text-[#00FF66]"><span className="text-white">✓</span> Conteúdo otimizado</li>
+              </ul>
+            </div>
+            <div className="bg-white/[0.02] p-8 rounded-3xl border border-white/10 relative pt-12 hover:bg-white/[0.04] transition-colors">
+              <span className="absolute -top-6 left-8 w-14 h-14 bg-[#050b14] text-white font-black rounded-2xl flex items-center justify-center text-xl border border-white/20 shadow-xl">04</span>
+              <h3 className="text-xl font-bold text-white mb-3">Publicação Automática</h3>
+              <p className="text-gray-400 text-sm leading-relaxed">Após todos os processos anteriores, o SaaS cria o produto do zero e publica automaticamente dentro das plataformas de cada marketplace. Tudo no automático.</p>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* 9. PLANOS (ATUALIZADO COM OS NOVOS VALORES) */}
-        <section id="planos" className="py-24 px-6 max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">Pronto para escalar?</h2>
-            <p className="text-xl text-slate-400">Escolha o plano ideal para estruturar a inteligência do seu marketing.</p>
+      {/* SEÇÃO 6 — FUNCIONALIDADES */}
+      <section id="funcionalidades" className="py-24 relative border-t border-white/5">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-20">
+            <h2 className="text-3xl md:text-5xl font-black text-white">Tudo que sua operação precisa em um único sistema.</h2>
           </div>
+          
+          <div className="grid md:grid-cols-3 gap-6">
+            <div className="bg-gradient-to-br from-white/[0.04] to-transparent p-10 rounded-3xl border border-white/10 hover:border-[#00FF66]/50 transition-all duration-300 group">
+              <h3 className="text-2xl font-bold text-[#00FF66] mb-4 group-hover:drop-shadow-[0_0_10px_rgba(0,255,102,0.5)] transition-all">IA Copywriter de Produtos</h3>
+              <p className="text-gray-300 text-base mb-5">Transforme informações básicas em anúncios que despertam interesse. Gera:</p>
+              <ul className="text-sm text-gray-400 space-y-2 list-disc pl-5">
+                <li>títulos;</li>
+                <li>descrições;</li>
+                <li>benefícios;</li>
+                <li>argumentos de venda.</li>
+              </ul>
+            </div>
+            <div className="bg-gradient-to-br from-white/[0.04] to-transparent p-10 rounded-3xl border border-white/10 hover:border-[#00FF66]/50 transition-all duration-300 group">
+              <h3 className="text-2xl font-bold text-[#00FF66] mb-4 group-hover:drop-shadow-[0_0_10px_rgba(0,255,102,0.5)] transition-all">SEO MarketingOS</h3>
+              <p className="text-gray-300 text-base mb-5">Seus produtos encontrados pelas pessoas certas. A IA identifica:</p>
+              <ul className="text-sm text-gray-400 space-y-2 list-disc pl-5">
+                <li>palavras-chave;</li>
+                <li>termos de busca;</li>
+                <li>oportunidades de posicionamento.</li>
+              </ul>
+            </div>
+            <div className="bg-gradient-to-br from-white/[0.04] to-transparent p-10 rounded-3xl border border-white/10 hover:border-[#00FF66]/50 transition-all duration-300 group">
+              <h3 className="text-2xl font-bold text-[#00FF66] mb-4 group-hover:drop-shadow-[0_0_10px_rgba(0,255,102,0.5)] transition-all">Compliance Inteligente</h3>
+              <p className="text-gray-300 text-base mb-5">Reduza riscos de problemas nos marketplaces. Identifica:</p>
+              <ul className="text-sm text-gray-400 space-y-2 list-disc pl-5">
+                <li>informações faltantes;</li>
+                <li>campos obrigatórios;</li>
+                <li>possíveis erros.</li>
+              </ul>
+            </div>
+            <div className="bg-gradient-to-br from-white/[0.04] to-transparent p-10 rounded-3xl border border-white/10 hover:border-[#00FF66]/50 transition-all duration-300 group md:col-span-1 lg:col-span-2">
+              <h3 className="text-2xl font-bold text-[#00FF66] mb-4 group-hover:drop-shadow-[0_0_10px_rgba(0,255,102,0.5)] transition-all">Imagens Premium com IA</h3>
+              <p className="text-gray-300 text-base mb-4 max-w-lg">Transforme imagens simples em apresentações profissionais. Melhore: <span className="font-bold text-white">aparência; contexto; percepção de valor.</span></p>
+            </div>
+            <div className="bg-gradient-to-br from-white/[0.04] to-transparent p-10 rounded-3xl border border-white/10 hover:border-[#00FF66]/50 transition-all duration-300 group">
+              <h3 className="text-2xl font-bold text-[#00FF66] mb-4 group-hover:drop-shadow-[0_0_10px_rgba(0,255,102,0.5)] transition-all">Exportação Inteligente</h3>
+              <p className="text-gray-300 text-base">Catálogo estruturado e pronto para publicação imediata.</p>
+            </div>
+          </div>
+        </div>
+      </section>
 
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {[
-              { 
-                name: "Starter", 
-                subtitle: "Para iniciantes e testes",
-                price: "Grátis",
-                period: "",
-                desc: "Ideal para estruturar os primeiros processos e organizar os dados de marketing.", 
-                highlight: false,
-                link: waLinkStarter,
-                features: [
-                  "1 usuário na plataforma",
-                  "Módulo AI Marketing Strategist básico",
-                  "Analytics Intelligence essenciais",
-                  "Geração de até 30 conteúdos/mês com IA",
-                  "Suporte via comunidade"
-                ]
-              },
-              { 
-                name: "Professional", 
-                subtitle: "Para equipes de marketing",
-                price: "R$ 297",
-                period: "/mês",
-                desc: "Perfeito para empresas em expansão que exigem automação avançada e escala.", 
-                highlight: true,
-                link: waLinkPro,
-                features: [
-                  "Até 10 usuários na plataforma",
-                  "Todos os 6 módulos de inteligência inclusos",
-                  "Dashboards e KPIs em tempo real",
-                  "Geração ilimitada de conteúdos e campanhas",
-                  "Equipe completa de Agentes IA (24/7)",
-                  "Suporte prioritário dedicado"
-                ]
-              },
-              { 
-                name: "Enterprise", 
-                subtitle: "Para grandes operações",
-                price: "Sob Consulta",
-                period: "",
-                desc: "Inteligência avançada, máxima segurança e personalização sob medida.", 
-                highlight: false,
-                link: waLinkEnterprise,
-                features: [
-                  "Usuários ilimitados",
-                  "Arquitetura SaaS dedicada",
-                  "APIs e integrações customizadas (CRM e ERP)",
-                  "Agentes IA treinados com dados proprietários",
-                  "Gerente de conta e Customer Success exclusivo",
-                  "SLA de disponibilidade de 99.9%"
-                ]
-              }
-            ].map((plan, i) => (
-              <div key={i} className={`p-8 rounded-3xl border flex flex-col justify-between ${plan.highlight ? 'bg-blue-950/20 border-blue-500/50 shadow-[0_0_40px_-10px_rgba(37,99,235,0.3)] relative transform md:-translate-y-4' : 'bg-white/[0.02] border-white/10'}`}>
-                {plan.highlight && (
-                  <span className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 px-4 py-1 bg-blue-500 text-white text-xs font-bold rounded-full uppercase tracking-wider">
-                    Mais Escolhido
-                  </span>
-                )}
-                <div>
-                  <h3 className="text-2xl font-bold text-white mb-1">{plan.name}</h3>
-                  <p className="text-blue-400 text-xs font-semibold uppercase tracking-wider mb-4">{plan.subtitle}</p>
-                  
-                  {/* Bloco de Valor */}
-                  <div className="mb-6 pb-6 border-b border-white/10 flex items-baseline gap-1">
-                    <span className="text-4xl font-extrabold text-white">{plan.price}</span>
-                    <span className="text-sm text-slate-400">{plan.period}</span>
-                  </div>
+      {/* SEÇÃO 7 — ANTES VS DEPOIS */}
+      <section className="py-24 relative border-t border-white/5">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
+            <div className="bg-white/[0.02] border border-white/5 p-10 rounded-[2.5rem] relative overflow-hidden backdrop-blur-sm">
+              <div className="absolute inset-0 bg-red-500/5 -z-10"></div>
+              <h3 className="text-2xl font-bold text-white mb-8 border-b border-white/10 pb-4">Antes do MarketingOS</h3>
+              <ul className="space-y-5 text-gray-400 font-medium text-lg">
+                <li className="flex items-center gap-4"><span className="text-red-500 bg-red-500/10 p-1.5 rounded-md">❌</span> Horas cadastrando produtos</li>
+                <li className="flex items-center gap-4"><span className="text-red-500 bg-red-500/10 p-1.5 rounded-md">❌</span> Equipes grandes para tarefas repetitivas</li>
+                <li className="flex items-center gap-4"><span className="text-red-500 bg-red-500/10 p-1.5 rounded-md">❌</span> Títulos sem estratégia</li>
+                <li className="flex items-center gap-4"><span className="text-red-500 bg-red-500/10 p-1.5 rounded-md">❌</span> Descrições copiadas</li>
+                <li className="flex items-center gap-4"><span className="text-red-500 bg-red-500/10 p-1.5 rounded-md">❌</span> Produtos difíceis de encontrar</li>
+                <li className="flex items-center gap-4"><span className="text-red-500 bg-red-500/10 p-1.5 rounded-md">❌</span> Catálogo parado</li>
+              </ul>
+            </div>
+            <div className="bg-gradient-to-br from-[#00FF66]/10 to-transparent border border-[#00FF66]/30 p-10 rounded-[2.5rem] relative overflow-hidden shadow-[0_0_50px_rgba(0,255,102,0.1)] backdrop-blur-sm transform md:-translate-y-4">
+              <h3 className="text-2xl font-bold text-[#00FF66] mb-8 border-b border-[#00FF66]/20 pb-4 drop-shadow-[0_0_8px_rgba(0,255,102,0.4)]">Depois do MarketingOS</h3>
+              <ul className="space-y-5 text-white font-bold text-lg">
+                <li className="flex items-center gap-4"><span className="text-[#00FF66] bg-[#00FF66]/20 p-1.5 rounded-md">✅</span> Catálogo organizado</li>
+                <li className="flex items-center gap-4"><span className="text-[#00FF66] bg-[#00FF66]/20 p-1.5 rounded-md">✅</span> Produtos otimizados</li>
+                <li className="flex items-center gap-4"><span className="text-[#00FF66] bg-[#00FF66]/20 p-1.5 rounded-md">✅</span> Anúncios profissionais</li>
+                <li className="flex items-center gap-4"><span className="text-[#00FF66] bg-[#00FF66]/20 p-1.5 rounded-md">✅</span> Mais velocidade operacional</li>
+                <li className="flex items-center gap-4"><span className="text-[#00FF66] bg-[#00FF66]/20 p-1.5 rounded-md">✅</span> Melhor posicionamento</li>
+                <li className="flex items-center gap-4"><span className="text-[#00FF66] bg-[#00FF66]/20 p-1.5 rounded-md">✅</span> Pronto para escalar</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
 
-                  <p className="text-slate-400 text-sm mb-6 pb-6 border-b border-white/10">{plan.desc}</p>
-                  
-                  <ul className="space-y-3 mb-8">
-                    {plan.features.map((feat, j) => (
-                      <li key={j} className="flex items-start gap-2.5 text-sm text-slate-300">
-                        <CheckCircle2 className="w-4 h-4 text-blue-500 mt-0.5 shrink-0" />
-                        <span>{feat}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+      {/* SEÇÃO 8 — PARA QUEM É */}
+      <section className="py-24 relative border-t border-white/5 bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] from-[#0a1324]/40 via-[#050b14] to-[#050b14]">
+        <div className="max-w-7xl mx-auto px-6 text-center">
+          <h2 className="text-3xl md:text-5xl font-black text-white mb-16">Criado para operações que precisam crescer.</h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div className="p-8 border border-white/10 rounded-3xl bg-white/[0.02] hover:bg-white/[0.04] transition-colors">
+              <div className="w-16 h-16 mx-auto bg-white/5 rounded-2xl flex items-center justify-center text-3xl mb-5">🛒</div>
+              <h3 className="text-lg font-bold text-white mb-2">Lojistas Marketplace</h3>
+              <p className="text-sm text-gray-400">Tenha milhares de produtos preparados sem aumentar sua equipe.</p>
+            </div>
+            <div className="p-8 border border-white/10 rounded-3xl bg-white/[0.02] hover:bg-white/[0.04] transition-colors">
+              <div className="w-16 h-16 mx-auto bg-white/5 rounded-2xl flex items-center justify-center text-3xl mb-5">📦</div>
+              <h3 className="text-lg font-bold text-white mb-2">Distribuidores</h3>
+              <p className="text-sm text-gray-400">Transforme grandes catálogos em oportunidades de venda.</p>
+            </div>
+            <div className="p-8 border border-white/10 rounded-3xl bg-white/[0.02] hover:bg-white/[0.04] transition-colors">
+              <div className="w-16 h-16 mx-auto bg-white/5 rounded-2xl flex items-center justify-center text-3xl mb-5">🏭</div>
+              <h3 className="text-lg font-bold text-white mb-2">Indústrias</h3>
+              <p className="text-sm text-gray-400">Digitalize seus produtos com qualidade profissional.</p>
+            </div>
+            <div className="p-8 border border-white/10 rounded-3xl bg-white/[0.02] hover:bg-white/[0.04] transition-colors">
+              <div className="w-16 h-16 mx-auto bg-white/5 rounded-2xl flex items-center justify-center text-3xl mb-5">📈</div>
+              <h3 className="text-lg font-bold text-white mb-2">Agências Ecommerce</h3>
+              <p className="text-sm text-gray-400">Escalone o cadastro dos seus clientes rapidamente.</p>
+            </div>
+          </div>
+        </div>
+      </section>
 
-                <div className="pt-4 border-t border-white/10">
-                  <Link href={plan.link} target="_blank" rel="noopener noreferrer" className={`w-full block text-center py-3.5 rounded-full font-semibold transition ${plan.highlight ? 'bg-blue-600 hover:bg-blue-500 text-white shadow-[0_0_20px_-5px_rgba(37,99,235,0.5)]' : 'bg-white/10 hover:bg-white/20 text-white'}`}>
-                    Solicitar acesso
-                  </Link>
-                </div>
+      {/* SEÇÃO 9 — PLANOS (PRICING PREMIUM) */}
+      <section id="planos" className="py-32 relative border-t border-white/5">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-20">
+            <h2 className="text-3xl md:text-5xl font-black text-white mb-4">Comece pequeno. <span className="text-[#00FF66]">Escale quando precisar.</span></h2>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-8 items-center max-w-6xl mx-auto">
+            <div className="bg-white/[0.02] border border-white/10 p-10 rounded-[2.5rem] backdrop-blur-sm">
+              <h3 className="text-2xl font-bold text-white mb-2">Starter</h3>
+              <p className="text-gray-400 text-sm mb-8">Para vendedores iniciando a automação.</p>
+              <div className="text-4xl font-black text-white mb-8">R$ 47,90<span className="text-lg text-gray-500 font-normal">/mês</span></div>
+              <ul className="space-y-4 text-sm text-gray-300 mb-10 font-medium">
+                <li className="flex items-center gap-3"><span className="text-white">✓</span> Até 100 SKUs/mês</li>
+                <li className="flex items-center gap-3"><span className="text-white">✓</span> Títulos IA</li>
+                <li className="flex items-center gap-3"><span className="text-white">✓</span> Descrições IA</li>
+                <li className="flex items-center gap-3"><span className="text-white">✓</span> Palavras-chave</li>
+                <li className="flex items-center gap-3"><span className="text-white">✓</span> Exportação otimizada</li>
+              </ul>
+              <Link href="https://www.marketingos.shop" className="block w-full text-center border border-white/20 text-white font-bold py-4 rounded-2xl hover:bg-white/10 transition-colors">Assinar Starter</Link>
+            </div>
+            
+            <div className="bg-gradient-to-b from-[#0a1324] to-[#0d1a2e] border-2 border-[#00FF66] p-12 rounded-[2.5rem] relative transform md:scale-105 shadow-[0_0_50px_rgba(0,255,102,0.15)] z-10">
+              <div className="absolute -top-5 left-1/2 -translate-x-1/2 bg-[#00FF66] text-black text-sm font-black uppercase px-6 py-2 rounded-full shadow-[0_0_20px_rgba(0,255,102,0.5)]">
+                🔥 Mais escolhido
               </div>
-            ))}
+              <h3 className="text-3xl font-bold text-white mb-2">Professional</h3>
+              <p className="text-gray-400 text-sm mb-8">Para operações que querem crescer.</p>
+              <div className="text-6xl font-black text-[#00FF66] mb-8 drop-shadow-[0_0_10px_rgba(0,255,102,0.3)]">R$ 297<span className="text-xl text-gray-500 font-normal">/mês</span></div>
+              <ul className="space-y-4 text-base text-gray-200 mb-10 font-semibold">
+                <li className="flex items-center gap-3"><span className="text-[#00FF66]">✓</span> Até 1.000 SKUs/mês</li>
+                <li className="flex items-center gap-3"><span className="text-[#00FF66]">✓</span> Todos recursos Starter</li>
+                <li className="flex items-center gap-3"><span className="text-[#00FF66]">✓</span> Imagens premium</li>
+                <li className="flex items-center gap-3"><span className="text-[#00FF66]">✓</span> Compliance inteligente</li>
+                <li className="flex items-center gap-3"><span className="text-[#00FF66]">✓</span> Processamento avançado</li>
+              </ul>
+              <Link href="https://www.marketingos.shop" className="block w-full text-center bg-[#00FF66] text-black font-extrabold py-5 rounded-2xl hover:bg-emerald-400 transition-all shadow-[0_0_20px_rgba(0,255,102,0.4)] hover:shadow-[0_0_30px_rgba(0,255,102,0.6)]">Assinar Professional</Link>
+            </div>
+            
+            <div className="bg-white/[0.02] border border-white/10 p-10 rounded-[2.5rem] backdrop-blur-sm">
+              <h3 className="text-2xl font-bold text-white mb-2">Enterprise</h3>
+              <p className="text-gray-400 text-sm mb-8">Para grandes catálogos e indústrias.</p>
+              <div className="text-4xl font-black text-white mb-8">Personalizado</div>
+              <ul className="space-y-4 text-sm text-gray-300 mb-10 font-medium">
+                <li className="flex items-center gap-3"><span className="text-white">✓</span> milhares de SKUs</li>
+                <li className="flex items-center gap-3"><span className="text-white">✓</span> operação personalizada</li>
+                <li className="flex items-center gap-3"><span className="text-white">✓</span> suporte dedicado</li>
+                <li className="flex items-center gap-3"><span className="text-white">✓</span> integrações</li>
+              </ul>
+              <Link href="https://www.marketingos.shop" className="block w-full text-center border border-white/20 text-white font-bold py-4 rounded-2xl hover:bg-white/10 transition-colors">Fale com especialistas</Link>
+            </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* 10. FAQ INTERATIVO */}
-        <section className="py-24 px-6 max-w-3xl mx-auto border-t border-white/5">
-          <h2 className="text-3xl font-bold text-center text-white mb-12">Perguntas Frequentes</h2>
-          <div className="space-y-4">
-            {[
-              {
-                q: "O Marketing Intelligence.OS substitui minha equipe?",
-                a: "Não. Ele aumenta a capacidade da sua equipe, trazendo inteligência, velocidade e automação para que eles foquem no que importa."
-              },
-              {
-                q: "Preciso entender IA para usar?",
-                a: "Não. A plataforma foi criada do zero para simplificar o uso de inteligência artificial em processos de negócios."
-              },
-              {
-                q: "Serve para qualquer empresa?",
-                a: "Sim. A estrutura da nossa inteligência adapta-se a diferentes segmentos, tamanhos e objetivos de mercado."
-              },
-              {
-                q: "Posso começar pequeno?",
-                a: "Sim. A plataforma cresce de forma escalonável junto com a sua operação e as suas demandas."
-              }
-            ].map((faq, i) => (
-              <div key={i} className="rounded-2xl bg-white/[0.02] border border-white/5 overflow-hidden transition">
-                <button 
-                  onClick={() => toggleFaq(i)}
-                  className="w-full p-6 text-left flex items-center justify-between text-white font-semibold focus:outline-none"
-                >
-                  <span className="flex items-center gap-3">
-                    <span className="w-2 h-2 rounded-full bg-blue-500"></span>
-                    {faq.q}
-                  </span>
-                  <ChevronDown className={`w-5 h-5 text-slate-400 transition-transform duration-300 ${openFaq === i ? 'rotate-180 text-blue-400' : ''}`} />
-                </button>
-                
-                {openFaq === i && (
-                  <div className="px-6 pb-6 pt-0 text-slate-400 text-sm leading-relaxed border-t border-white/5 pt-4">
-                    {faq.a}
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* 11. SEÇÃO FINAL */}
-        <section className="py-32 px-6 border-t border-white/5 relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent to-blue-900/10 pointer-events-none" />
-          <div className="max-w-4xl mx-auto text-center relative z-10">
-            <h2 className="text-4xl md:text-6xl font-extrabold text-white mb-6 tracking-tight">
-              O futuro do marketing não será manual.<br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">Será inteligente.</span>
-            </h2>
-            <p className="text-xl text-slate-400 mb-10 max-w-2xl mx-auto">
-              Comece agora a transformar dados em decisões e decisões em crescimento acelerado.
-            </p>
-            <Link href={waLinkGeral} target="_blank" rel="noopener noreferrer" className="inline-block px-10 py-5 bg-blue-600 hover:bg-blue-500 text-white rounded-full font-bold text-lg transition shadow-[0_0_40px_-10px_rgba(37,99,235,0.6)]">
-              Entrar para o Marketing Intelligence.OS
-            </Link>
-          </div>
-        </section>
+      {/* SEÇÃO FINAL CTA (ALTO IMPACTO) */}
+      <section className="py-32 relative border-t border-white/5 text-center overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] from-[#00FF66]/10 via-[#050b14] to-[#050b14] -z-10"></div>
         
-        {/* RODAPÉ CORPORATIVO COMPLETO */}
-        <footer className="py-16 px-6 max-w-7xl mx-auto border-t border-white/5 text-slate-500 text-sm">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
-            <div>
-              {/* LOGO INTEGRADA NO RODAPÉ */}
-              <div className="flex items-center gap-3 mb-4">
-                <PremiumLogo />
-                <span className="font-extrabold text-lg text-white">
-                  Marketing Intelligence<span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-indigo-500">.OS</span>
-                </span>
-              </div>
-              <p className="text-xs text-slate-400 leading-relaxed">
-                O sistema operacional inteligente definitivo para comandar todo o ecossistema de marketing da sua empresa através de dados e IA.
-              </p>
-            </div>
-            <div>
-              <h4 className="text-white font-semibold text-xs uppercase tracking-wider mb-4">Produto</h4>
-              <ul className="space-y-2.5 text-xs">
-                <li><Link href="#solucao" className="hover:text-white transition">Módulos IA</Link></li>
-                <li><Link href="#planos" className="hover:text-white transition">Planos e Preços</Link></li>
-                <li><Link href="/seguranca" className="hover:text-white transition">Segurança Enterprise</Link></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="text-white font-semibold text-xs uppercase tracking-wider mb-4">Empresa</h4>
-              <ul className="space-y-2.5 text-xs">
-                <li><Link href="/sobre" className="hover:text-white transition">Sobre nós</Link></li>
-                <li><Link href="/carreiras" className="hover:text-white transition">Carreiras</Link></li>
-                <li><Link href="/contato" className="hover:text-white transition">Contato</Link></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="text-white font-semibold text-xs uppercase tracking-wider mb-4">Legal</h4>
-              <ul className="space-y-2.5 text-xs">
-                <li><Link href="/termos" className="hover:text-white transition">Termos de Uso</Link></li>
-                <li><Link href="/privacidade" className="hover:text-white transition">Política de Privacidade</Link></li>
-                <li><Link href="/cookies" className="hover:text-white transition">Configurações de Cookies</Link></li>
-              </ul>
-            </div>
-          </div>
-          <div className="pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
-            <p>© 2026 Marketing Intelligence.OS. Todos os direitos reservados.</p>
-            <p className="text-slate-400 font-mono">Arquitetura SaaS Enterprise V1.0</p>
-          </div>
-        </footer>
+        <div className="max-w-4xl mx-auto px-6 relative z-10">
+          <h2 className="text-4xl md:text-6xl font-black text-white mb-8 leading-tight">
+            Seu catálogo já existe.<br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00FF66] to-emerald-400 drop-shadow-[0_0_15px_rgba(0,255,102,0.3)]">Agora transforme ele em uma máquina de vendas.</span>
+          </h2>
+          <p className="text-xl text-gray-400 mb-12 font-light">Pare de perder tempo cadastrando produtos manualmente. Deixe a inteligência artificial preparar seus anúncios enquanto você foca no crescimento da sua operação.</p>
+          <Link href="https://www.marketingos.shop" className="inline-block bg-[#00FF66] text-black font-black px-12 py-6 rounded-2xl text-xl hover:bg-emerald-400 hover:scale-105 transition-all duration-300 shadow-[0_0_40px_rgba(0,255,102,0.3)]">
+            Quero otimizar meu catálogo agora
+          </Link>
+        </div>
+      </section>
 
-      </div>
+      {/* ========================================== */}
+      {/* FOOTER                                     */}
+      {/* ========================================== */}
+      <footer className="py-12 bg-[#050b14] border-t border-gray-800 text-center">
+        <div className="max-w-7xl mx-auto px-6">
+          <h4 className="text-white font-bold text-lg mb-2">MarketingOS.shop</h4>
+          <p className="text-gray-500 text-sm">O cérebro inteligente por trás dos maiores catálogos de ecommerce.</p>
+          <p className="text-gray-600 text-xs mt-8">&copy; 2026 MarketingOS. Todos os direitos reservados.</p>
+        </div>
+      </footer>
+
     </div>
   );
 }
