@@ -53,7 +53,7 @@ export default function LandingPage() {
       <div className="relative z-10">
         
         {/* ========================================== */}
-        {/* NAV (MANTIDA DO ANEXO ORIGINAL)              */}
+        {/* NAV                                          */}
         {/* ========================================== */}
         <nav className="flex items-center justify-between px-6 py-6 max-w-7xl mx-auto border-b border-white/5 bg-[#050b14]/90 backdrop-blur-md sticky top-0 z-50">
           <div className="flex items-center gap-3 cursor-default group">
@@ -78,10 +78,6 @@ export default function LandingPage() {
             Solicitar Acesso
           </Link>
         </nav>
-
-        {/* ========================================== */}
-        {/* CONTEÚDO DA LANDING PAGE MARKETINGOS       */}
-        {/* ========================================== */}
 
         {/* HERO SECTION */}
         <section className="relative pt-32 pb-24 overflow-hidden">
@@ -329,7 +325,7 @@ export default function LandingPage() {
           </div>
         </section>
 
-        {/* SEÇÃO 7 — ANTES VS DEPOIS NA PRÁTICA (VISUAL COMPARATIVO DE ANÚNCIO) */}
+        {/* SEÇÃO 7 — ANTES VS DEPOIS NA PRÁTICA COM IMAGEM */}
         <section className="py-24 relative border-t border-white/5 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-transparent via-[#050b14] to-[#050b14]">
           <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-16">
@@ -338,93 +334,33 @@ export default function LandingPage() {
                 premium em <span className="text-[#00FF66]">minutos</span> e aumenta a percepção <br className="hidden md:block" />
                 de valor dos seus produtos.
               </h2>
+              <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+                Veja na prática a diferença entre um anúncio comum e um anúncio otimizado pela nossa Inteligência Artificial.
+              </p>
             </div>
             
-            <div className="flex flex-col lg:flex-row items-center justify-center gap-8 mt-12 max-w-6xl mx-auto">
+            {/* CONTAINER DA IMAGEM */}
+            <div className="mt-12 max-w-5xl mx-auto relative group">
+              {/* Glow Atrás da Imagem */}
+              <div className="absolute inset-0 bg-[#00FF66]/20 blur-[100px] rounded-full -z-10 group-hover:bg-[#00FF66]/30 transition-all duration-500"></div>
               
-              {/* O PESADELO (ANÚNCIO RUIM) */}
-              <div className="relative w-full lg:w-1/2 flex flex-col items-center">
-                {/* Badge Antes */}
-                <div className="bg-[#1a1a1a] text-gray-300 font-bold px-6 py-2 rounded-full border border-gray-700 text-lg mb-6 flex items-center gap-2 z-10">
-                  Antes <span className="text-red-500 bg-red-500/20 rounded-full w-6 h-6 flex items-center justify-center text-sm">X</span>
-                </div>
-                
-                {/* Card Box */}
-                <div className="bg-white rounded-3xl p-6 w-full max-w-md shadow-2xl relative">
-                  {/* Imagem Ruim Simulada */}
-                  <div className="bg-gray-100 w-full h-64 rounded-xl mb-6 flex flex-col items-center justify-center border border-gray-200">
-                    <span className="text-5xl mb-2">🥩</span>
-                    <span className="text-gray-400 font-medium text-sm">Imagem Bruta - Fundo Branco</span>
-                  </div>
-                  
-                  {/* Título e Descrição Ruins */}
-                  <div className="text-left">
-                    <h4 className="text-black font-bold text-xl mb-2">tabua de carne madeira</h4>
-                    <p className="text-gray-500 text-sm leading-relaxed mb-6">
-                      tabua de cortar carne muito boa e resistente, madeira de lei, tamanho grande. serve para churrasco.
-                    </p>
-                    <div className="text-black font-black text-3xl">R$ 89,90</div>
-                  </div>
-                </div>
+              {/* Box da Imagem */}
+              <div className="relative rounded-[2rem] overflow-hidden border-2 border-[#00FF66]/30 shadow-[0_0_50px_rgba(0,255,102,0.15)] bg-[#0a1324] p-2 md:p-4">
+                 <img 
+                    src="/WhatsApp Image 2026-07-28 at 16.30.59.jpeg" 
+                    alt="Comparativo Antes e Depois do MarketingOS" 
+                    className="w-full h-auto rounded-xl md:rounded-2xl"
+                 />
               </div>
-
-              {/* A MÁQUINA DE VENDAS (ANÚNCIO MARKETINGOS) */}
-              <div className="relative w-full lg:w-1/2 flex flex-col items-center">
-                {/* Badge Depois */}
-                <div className="bg-[#00FF66]/20 text-[#00FF66] font-bold px-6 py-2 rounded-full border border-[#00FF66]/50 text-lg mb-6 flex items-center gap-2 z-10 shadow-[0_0_15px_rgba(0,255,102,0.3)]">
-                  Depois <span className="text-black bg-[#00FF66] rounded-full w-6 h-6 flex items-center justify-center text-sm font-black">V</span>
-                </div>
-                
-                {/* Card Box Premium */}
-                <div className="bg-[#0a1324] rounded-3xl p-6 w-full max-w-md shadow-[0_0_40px_rgba(0,255,102,0.15)] border-2 border-[#00FF66] relative overflow-hidden">
-                  {/* Fundo Glow */}
-                  <div className="absolute top-0 right-0 w-40 h-40 bg-[#00FF66]/10 blur-[50px] -z-10"></div>
-                  
-                  {/* Imagem Perfeita Simulada */}
-                  <div className="bg-gradient-to-br from-gray-800 to-gray-900 w-full h-64 rounded-xl mb-6 flex flex-col items-center justify-center border border-gray-700 relative overflow-hidden">
-                    <div className="absolute top-3 left-3 bg-black/60 backdrop-blur-md text-white text-[10px] uppercase font-bold px-2 py-1 rounded border border-white/10">Cenário Gerado por IA</div>
-                    <span className="text-5xl mb-3 drop-shadow-lg">🥩🍷✨</span>
-                    <span className="text-gray-300 font-medium text-lg text-center px-4 leading-tight">Sua Carne Mais<br/>Bem Apresentada À Mesa</span>
-                  </div>
-                  
-                  {/* Título Otimizado */}
-                  <div className="text-left">
-                    <h4 className="text-white font-bold text-xl mb-4 leading-snug">Tábua Rústica Premium BBQ - Madeira Nobre Artesanal</h4>
-                    
-                    {/* Bullet Points */}
-                    <div className="grid grid-cols-2 gap-3 mb-6 text-[11px] text-gray-300">
-                      <div className="bg-white/5 p-3 rounded-lg border border-white/10 shadow-inner">
-                        <strong className="text-[#00FF66] block mb-1 text-xs">Visual Artesanal</strong> Que Valoriza O Ambiente
-                      </div>
-                      <div className="bg-white/5 p-3 rounded-lg border border-white/10 shadow-inner">
-                        <strong className="text-[#00FF66] block mb-1 text-xs">Apoio Prático</strong> Para Servir Melhor
-                      </div>
-                      <div className="bg-white/5 p-3 rounded-lg border border-white/10 shadow-inner">
-                        <strong className="text-[#00FF66] block mb-1 text-xs">Canaleta Útil</strong> Para Conter Líquidos
-                      </div>
-                      <div className="bg-white/5 p-3 rounded-lg border border-white/10 shadow-inner">
-                        <strong className="text-[#00FF66] block mb-1 text-xs">Peça Única</strong> Presença e Funcionalidade
-                      </div>
-                    </div>
-
-                    <div className="flex items-center justify-between mt-2">
-                      <div className="text-[#00FF66] font-black text-3xl">R$ 149,90</div>
-                      <span className="text-xs text-gray-800 font-bold bg-[#00FF66] px-3 py-1.5 rounded-md">Maior Valor Percebido</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
             </div>
 
-            {/* Bottom Banner */}
+            {/* Banner Embaixo da Imagem */}
             <div className="mt-20 flex justify-center">
               <div className="bg-white text-black font-extrabold text-lg md:text-xl px-8 py-4 rounded-full flex items-center gap-4 shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:scale-105 transition-transform cursor-default">
                 <span className="bg-[#00FF66] text-black rounded-full w-8 h-8 flex items-center justify-center font-black">➔</span>
                 Dê cara de marca grande para sua operação
               </div>
             </div>
-
           </div>
         </section>
 
