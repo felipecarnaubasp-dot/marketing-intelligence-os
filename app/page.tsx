@@ -88,7 +88,7 @@ export default function LandingPage() {
             {/* Autoridade */}
             <div className="mb-10 max-w-3xl mx-auto">
               <p className="text-xs md:text-sm text-emerald-400 font-medium bg-emerald-950/40 border border-emerald-800/30 py-3 px-6 rounded-full backdrop-blur-sm inline-block shadow-[0_0_20px_rgba(16,185,129,0.1)]">
-                (Engenharia de ponta a ponta: Arquiteto de Software Sênior, IA Generativa e Especialistas focados na conversão do seus Produtos V1.0)
+                (Engenharia de ponta a ponta: Arquiteto de Software Sênior, IA Generativa e Especialistas focados na conversão do seus Produtos.
               </p>
             </div>
 
