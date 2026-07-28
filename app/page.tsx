@@ -129,7 +129,7 @@ export default function LandingPage() {
                 <li className="flex items-center gap-4"><span className="text-red-500">❌</span> corrigindo planilhas;</li>
                 <li className="flex items-center gap-4"><span className="text-red-500">❌</span> criando títulos;</li>
                 <li className="flex items-center gap-4"><span className="text-red-500">❌</span> preenchendo informações;</li>
-                <li className="flex items-center gap-4"><span class="text-red-500">❌</span> ajustando anúncios;</li>
+                <li className="flex items-center gap-4"><span className="text-red-500">❌</span> ajustando anúncios;</li>
               </ul>
             </div>
             
