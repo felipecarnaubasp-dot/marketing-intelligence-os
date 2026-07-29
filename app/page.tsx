@@ -8,28 +8,28 @@ import {
 } from 'lucide-react';
 
 // ==========================================
-// LOGO PREMIUM EXCLUSIVA (SVG Component)
+// LOGO PREMIUM EXCLUSIVA (MarketingOS.shop)
 // ==========================================
 const PremiumLogo = () => (
-  <svg width="42" height="42" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" className="drop-shadow-[0_0_15px_rgba(56,189,248,0.3)] hover:scale-105 transition-transform duration-300">
+  <svg width="42" height="42" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" className="drop-shadow-[0_0_15px_rgba(0,255,102,0.3)] hover:scale-105 transition-transform duration-300">
     {/* Fundo Glassmorphism */}
-    <rect width="32" height="32" rx="10" fill="#030712" stroke="rgba(56, 189, 248, 0.4)" strokeWidth="1"/>
+    <rect width="32" height="32" rx="10" fill="#030712" stroke="rgba(0, 255, 102, 0.4)" strokeWidth="1"/>
     <rect x="2" y="2" width="28" height="28" rx="8" fill="url(#glow-grad)" opacity="0.2"/>
     
     {/* Monograma 'M' formando um fluxo de dados */}
     <path d="M9 21.5V11L16 17L23 11V18.5" stroke="url(#line-grad)" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
     
-    {/* Ponto / Nó de Inteligência (.OS) */}
-    <circle cx="23" cy="21.5" r="2.5" fill="#38BDF8" className="animate-pulse"/>
+    {/* Ponto / Nó de Inteligência (.shop) */}
+    <circle cx="23" cy="21.5" r="2.5" fill="#00FF66" className="animate-pulse"/>
     
     <defs>
       <linearGradient id="line-grad" x1="9" y1="11" x2="23" y2="21.5" gradientUnits="userSpaceOnUse">
         <stop stopColor="#E2E8F0" />
-        <stop offset="1" stopColor="#6366F1" />
+        <stop offset="1" stopColor="#00FF66" />
       </linearGradient>
       <linearGradient id="glow-grad" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
-        <stop stopColor="#38BDF8" />
-        <stop offset="1" stopColor="#6366F1" />
+        <stop stopColor="#00FF66" />
+        <stop offset="1" stopColor="#030712" />
       </linearGradient>
     </defs>
   </svg>
@@ -42,7 +42,7 @@ export default function LandingPage() {
     setOpenFaq(openFaq === index ? null : index);
   };
 
-  const waLinkGeral = "https://wa.me/5511967585119?text=Olá!%20Gostaria%20de%20solicitar%20acesso%20ao%20Marketing%20Intelligence.OS.";
+  const waLinkGeral = "https://wa.me/5511967585119?text=Olá!%20Gostaria%20de%20solicitar%20acesso%20ao%20MarketingOS.shop.";
 
   return (
     <div className="min-h-screen bg-[#050b14] text-gray-100 font-sans selection:bg-[#00FF66] selection:text-black relative overflow-x-hidden">
@@ -60,9 +60,9 @@ export default function LandingPage() {
             <PremiumLogo />
             <div className="flex flex-col">
               <span className="font-extrabold text-lg md:text-xl tracking-tight text-white leading-none">
-                Marketing Intelligence<span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-indigo-500">.OS</span>
+                MarketingOS<span className="text-[#00FF66]">.shop</span>
               </span>
-              <span className="text-[9px] font-mono tracking-[0.2em] text-slate-500 uppercase mt-1 group-hover:text-cyan-400 transition-colors">
+              <span className="text-[9px] font-mono tracking-[0.2em] text-slate-500 uppercase mt-1 group-hover:text-[#00FF66] transition-colors">
                 System Active
               </span>
             </div>
@@ -88,7 +88,7 @@ export default function LandingPage() {
             </h1>
             <p className="text-lg md:text-xl text-gray-400 mb-8 max-w-3xl mx-auto font-light leading-relaxed">
               Milhares de produtos ficam parados porque possuem títulos fracos, descrições incompletas, imagens ruins e informações que não ajudam o cliente a comprar.<br /><br />
-              O <strong className="text-white font-bold">MarketingOS</strong> transforma seu catálogo desorganizado em anúncios profissionais, otimizados e prontos para vender em múltiplos marketplaces usando Inteligência Artificial.
+              O <strong className="text-white font-bold">MarketingOS.shop</strong> transforma seu catálogo desorganizado em anúncios profissionais, otimizados e prontos para vender em múltiplos marketplaces usando Inteligência Artificial.
             </p>
             
             <div className="mb-10 max-w-3xl mx-auto">
@@ -325,30 +325,25 @@ export default function LandingPage() {
           </div>
         </section>
 
-        {/* SEÇÃO 7 — ANTES VS DEPOIS NA PRÁTICA COM IMAGEM */}
+        {/* SEÇÃO 7 — ANTES VS DEPOIS COM A IMAGEM OFICIAL */}
         <section className="py-24 relative border-t border-white/5 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-transparent via-[#050b14] to-[#050b14]">
           <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-5xl font-black text-white mb-6">
-                O MarketingOS cria anúncios com aparência <br className="hidden md:block" />
+                O Marketingos.shop cria anúncios com aparência <br className="hidden md:block" />
                 premium em <span className="text-[#00FF66]">minutos</span> e aumenta a percepção <br className="hidden md:block" />
                 de valor dos seus produtos.
               </h2>
-              <p className="text-lg text-gray-400 max-w-2xl mx-auto">
-                Veja na prática a diferença entre um anúncio comum e um anúncio otimizado pela nossa Inteligência Artificial.
-              </p>
             </div>
             
             {/* CONTAINER DA IMAGEM */}
             <div className="mt-12 max-w-5xl mx-auto relative group">
-              {/* Glow Atrás da Imagem */}
               <div className="absolute inset-0 bg-[#00FF66]/20 blur-[100px] rounded-full -z-10 group-hover:bg-[#00FF66]/30 transition-all duration-500"></div>
               
-              {/* Box da Imagem */}
               <div className="relative rounded-[2rem] overflow-hidden border-2 border-[#00FF66]/30 shadow-[0_0_50px_rgba(0,255,102,0.15)] bg-[#0a1324] p-2 md:p-4">
                  <img 
                     src="/WhatsApp Image 2026-07-28 at 16.30.59.jpeg" 
-                    alt="Comparativo Antes e Depois do MarketingOS" 
+                    alt="Comparativo Antes e Depois do MarketingOS.shop" 
                     className="w-full h-auto rounded-xl md:rounded-2xl"
                  />
               </div>
